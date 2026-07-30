@@ -2121,6 +2121,48 @@ window.scrollTo(0, 0);
     backdrop-filter:blur(6px); transition:background .2s ease, transform .15s ease;
   }
   .pv-endcard-btn:hover{background:rgba(255,255,255,.22); transform:translateY(-1px);}
+  /* =========================================================
+   FIX DEFINITIVO DE SCROLL EN MÓVIL PARA EL MODAL (PROYECTO 3)
+   ========================================================= */
+
+/* 1. Permitir desplazamiento táctil vertical en la capa overlay y el modal */
+.modal-overlay,
+#modal-p3,
+#modal-p3 .modal {
+  touch-action: pan-y !important;
+  -webkit-overflow-scrolling: touch !important;
+}
+
+/* 2. Reglas móviles específicas */
+@media (max-width: 680px) {
+  /* Forzar al contenedor del modal a tener scroll y altura límite en móvil */
+  #modal-p3 .modal {
+    max-height: 88vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    position: relative !important;
+  }
+
+  /* El contenedor interno debe dejar fluir la altura sin cortar nada */
+  #modal-p3 .modal-body,
+  #modal-p3 .x-profile-container,
+  #modal-p3 #x-profile-view {
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  /* Corregir la cabecera fija dentro del hilo para evitar bloqueo táctil en iOS/Android */
+  .x-thread-inline-header {
+    position: sticky !important; /* 'sticky' respeta el scroll en móvil mucho mejor que 'fixed' */
+    top: 0 !important;
+    z-index: 20 !important;
+  }
+
+  .x-thread-inline-content {
+    padding-top: 16px !important; /* Reducimos el padding al pasar de fixed a sticky */
+  }
+}
 
   /* ---------- ALGORITMO (kept from before, condensed reference inside story now, but keep quick teaser section) ---------- */
 
@@ -2540,7 +2582,6 @@ window.scrollTo(0, 0);
       <button class="highlight" data-story="timeline"><div class="h-ring"><div class="h-inner">🎬</div></div><span>Timeline</span></button>
       <button class="highlight" data-story="futuro"><div class="h-ring"><div class="h-inner">⚡</div></div><span>Upgrade</span></button>
       <button class="highlight" data-story="trabajar"><div class="h-ring"><div class="h-inner">🤝</div></div><span>Trabajar conmigo</span></button>
-      <button class="highlight" data-story="algoritmo"><div class="h-ring"><div class="h-inner">🧠</div></div><span>Mi algoritmo</span></button>
     </div>
   </div>
 </section>
@@ -3077,7 +3118,8 @@ window.scrollTo(0, 0);
      (imagen grande + tira de diapositivas navegable)
      ========================================== -->
 <div class="modal-overlay" id="modal-p4">
-  <div class="modal" role="dialog" aria-modal="true">
+  <!-- CÓDIGO CORREGIDO -->
+<div class="modal" role="dialog" aria-modal="true" style="padding: 0; border-radius: 16px; max-height: 90vh; overflow-y: auto; -webkit-overflow-scrolling: touch;">
 
     <!-- EDITA AQUÍ: foto de portada, icono y título/subtítulo del Proyecto 4 -->
     <div class="modal-cover g4">
