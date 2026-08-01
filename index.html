@@ -169,6 +169,10 @@ window.scrollTo(0, 0);
   .top-links{display:flex; align-items:center; gap:22px; font-size:.82rem; color:var(--text-dim);}
   .top-links a{text-decoration:none; transition:color .2s;}
   .top-links a:hover{color:var(--text);}
+  .lang-switch{display:flex; align-items:center; gap:2px; margin-left:14px; padding:3px; border-radius:20px; background:rgba(255,255,255,.06); border:1px solid var(--line);}
+  .lang-btn{font-family:'JetBrains Mono', monospace; font-size:.7rem; font-weight:600; letter-spacing:.03em; padding:5px 10px; border-radius:16px; border:none; background:transparent; color:var(--text-dim); cursor:pointer; transition:background .2s ease, color .2s ease;}
+  .lang-btn.active{background:var(--grad); color:#fff;}
+  .lang-btn:not(.active):hover{color:var(--text);}
   .live-dot{width:7px; height:7px; border-radius:50%; background:#2ecc71; display:inline-block; margin-right:6px; animation:pulse 1.8s infinite;}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,204,113,.55);} 70%{box-shadow:0 0 0 8px rgba(46,204,113,0);} 100%{box-shadow:0 0 0 0 rgba(46,204,113,0);}}
 
@@ -2516,7 +2520,11 @@ window.scrollTo(0, 0);
 <div class="topbar">
   <div class="wordmark">LARA SEBASTIÀ</div>
   <div class="top-links">
-    <a href="#contacto"><span class="live-dot"></span>Disponible</a>
+    <a href="#contacto"><span class="live-dot"></span><span class="i18n" data-es="Disponible" data-ca="Disponible">Disponible</span></a>
+    <div class="lang-switch" role="group" aria-label="Selector de idioma">
+      <button type="button" class="lang-btn" id="langEsBtn" onclick="setSiteLang('es')">ES</button>
+      <button type="button" class="lang-btn" id="langCaBtn" onclick="setSiteLang('ca')">CAT</button>
+    </div>
   </div>
 </div>
 
@@ -2535,18 +2543,18 @@ window.scrollTo(0, 0);
       <!-- Bloque de información completo -->
       <div class="profile-info">
         <h1 class="fade-up" style="animation-delay:.1s">Lara Sebastià</h1>
-        <p class="subtitle fade-up" style="animation-delay:.12s">Edición y creación de contenido</p>
+        <p class="subtitle fade-up i18n" style="animation-delay:.12s" data-es="Edición y creación de contenido" data-ca="Edició i creació de contingut">Edición y creación de contenido</p>
 
         <div class="stats fade-up" style="animation-delay:.15s">
-          <div class="stat"><b>6</b><span>Proyectos</span></div>
-          <div class="stat"><b>+4</b><span>Años creando</span></div>
-          <div class="stat"><b>8</b><span>Formatos</span></div>
+          <div class="stat"><b>6</b><span class="i18n" data-es="Proyectos" data-ca="Projectes">Proyectos</span></div>
+          <div class="stat"><b>+4</b><span class="i18n" data-es="Años creando" data-ca="Anys creant">Años creando</span></div>
+          <div class="stat"><b>8</b><span class="i18n" data-es="Formatos" data-ca="Formats">Formatos</span></div>
         </div>
 
         <p class="bio fade-up" style="animation-delay:.2s">
-          🎓 Comunicación Audiovisual<br>
-          📺 Máster en programas de TV<br>
-          📱 Máster en Redes Sociales
+          <span class="i18n" data-es="🎓 Comunicación Audiovisual" data-ca="🎓 Comunicació Audiovisual">🎓 Comunicación Audiovisual</span><br>
+          <span class="i18n" data-es="📺 Máster en programas de TV" data-ca="📺 Màster en programes de TV">📺 Máster en programas de TV</span><br>
+          <span class="i18n" data-es="📱 Máster en Redes Sociales" data-ca="📱 Màster en Xarxes Socials">📱 Máster en Redes Sociales</span>
         </p>
 
         <div class="location fade-up" style="animation-delay:.15s">📍 Barcelona</div>
@@ -2560,8 +2568,8 @@ window.scrollTo(0, 0);
 
         <!-- Botones CTA con tus acciones reales -->
         <div class="cta-row fade-up" style="animation-delay:.3s">
-          <a class="btn btn-primary" id="openIntro2" href="mailto:larasebastia@hotmail.com" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;">Enviar DM</a>
-          <button class="btn btn-ghost" id="cvBtn">Descargar CV</button>
+          <a class="btn btn-primary" id="openIntro2" href="mailto:larasebastia@hotmail.com" style="text-decoration:none; display:inline-flex; align-items:center; justify-content:center;"><span class="i18n" data-es="Enviar DM" data-ca="Envia un DM">Enviar DM</span></a>
+          <button class="btn btn-ghost" id="cvBtn"><span class="i18n" data-es="Descargar CV" data-ca="Descarregar CV">Descargar CV</span></button>
         </div>
       </div> <!-- Cierre de profile-info -->
 
@@ -2570,18 +2578,18 @@ window.scrollTo(0, 0);
 
   <!-- Botón de scroll "Descubre" (queda fuera del container, centrado abajo) -->
   <button class="scroll-cue" id="scrollCue" aria-label="Descubre los proyectos" type="button">
-    <span>Descubre</span><span class="chevron"></span>
+    <span class="i18n" data-es="Descubre" data-ca="Descobreix">Descubre</span><span class="chevron"></span>
   </button>
 </section>
 
 <!-- ================= HIGHLIGHTS ================= -->
 <section class="highlights-section">
   <div class="container">
-    <span class="highlights-eyebrow">Historias destacadas</span>
+    <span class="highlights-eyebrow i18n" data-es="Historias destacadas" data-ca="Històries destacades">Historias destacadas</span>
     <div class="highlights" id="highlightsRow">
       <button class="highlight" data-story="timeline"><div class="h-ring"><div class="h-inner">🎬</div></div><span>Timeline</span></button>
       <button class="highlight" data-story="futuro"><div class="h-ring"><div class="h-inner">⚡</div></div><span>Upgrade</span></button>
-      <button class="highlight" data-story="trabajar"><div class="h-ring"><div class="h-inner">🤝</div></div><span>Trabajar conmigo</span></button>
+      <button class="highlight" data-story="trabajar"><div class="h-ring"><div class="h-inner">🤝</div></div><span class="i18n" data-es="Trabajar conmigo" data-ca="Treballar amb mi">Trabajar conmigo</span></button>
     </div>
   </div>
 </section>
@@ -2591,21 +2599,21 @@ window.scrollTo(0, 0);
   <div class="container">
     <div class="tabs-sentinel" id="tabsSentinel"></div>
     <div class="tabs" id="tabsBar" role="tablist" aria-label="Secciones del portfolio">
-      <button class="tab-btn active" data-tab="posts" role="tab" aria-selected="true" aria-controls="panel-posts">⊞ Publicaciones</button>
+      <button class="tab-btn active" data-tab="posts" role="tab" aria-selected="true" aria-controls="panel-posts">⊞ <span class="i18n" data-es="Publicaciones" data-ca="Publicacions">Publicaciones</span></button>
       <button class="tab-btn" data-tab="reels" role="tab" aria-selected="false" aria-controls="panel-reels">▷ Reels</button>
-      <button class="tab-btn" data-tab="tagged" role="tab" aria-selected="false" aria-controls="panel-tagged">🏷 Etiquetadas</button>
+      <button class="tab-btn" data-tab="tagged" role="tab" aria-selected="false" aria-controls="panel-tagged">🏷 <span class="i18n" data-es="Etiquetadas" data-ca="Etiquetades">Etiquetadas</span></button>
       <div class="tab-indicator" id="tabIndicator"></div>
     </div>
 
     <!-- POSTS -->
     <div class="tab-panel active show" id="panel-posts" role="tabpanel">
       <div class="feed">
-        <div class="post" data-modal="p1" tabindex="0" role="button"><div class="post-shape g1"></div><span class="post-icon">📱</span><span class="post-tag">CREACIÓN DE CONTENIDO</span><span class="post-title">Instagram CNPN Rugby</span><img src="foto/rugby.jpg" class="post-img"></div>
-        <div class="post" data-modal="p2" tabindex="0" role="button"><div class="post-shape g2"></div><span class="post-icon">🎞️</span><span class="post-tag">EDICIÓN DE VIDEO</span><span class="post-title">Tu cara me suena</span><img src="foto/tcms_copia.jpg" class="post-img"></div>
+        <div class="post" data-modal="p1" tabindex="0" role="button"><div class="post-shape g1"></div><span class="post-icon">📱</span><span class="post-tag i18n" data-es="CREACIÓN DE CONTENIDO" data-ca="CREACIÓ DE CONTINGUT">CREACIÓN DE CONTENIDO</span><span class="post-title">Instagram CNPN Rugby</span><img src="foto/rugby.jpg" class="post-img"></div>
+        <div class="post" data-modal="p2" tabindex="0" role="button"><div class="post-shape g2"></div><span class="post-icon">🎞️</span><span class="post-tag i18n" data-es="EDICIÓN DE VIDEO" data-ca="EDICIÓ DE VÍDEO">EDICIÓN DE VIDEO</span><span class="post-title">Tu cara me suena</span><img src="foto/tcms_copia.jpg" class="post-img"></div>
         <div class="post" data-modal="p3" tabindex="0" role="button"><div class="post-shape g3"></div><span class="post-icon">📱</span><span class="post-tag">SOCIAL MEDIA MANAGER</span><span class="post-title">Popsport</span><img src="foto/pop.png" alt="Foto feed 3" class="post-img"></div>
-        <div class="post" data-modal="p4" tabindex="0" role="button"><div class="post-shape g4"></div><span class="post-icon">🎯</span><span class="post-tag">PROYECTO ACADÉMICO</span><span class="post-title">Estrategia de Redes</span><img src="foto/barca.jpg" alt="Foto feed 4" class="post-img"></div>
-        <div class="post" data-modal="p5" tabindex="0" role="button"><div class="post-shape g5"></div><span class="post-icon">🎧</span><span class="post-tag">PRODUCCIÓN Y REALIZACIÓN</span><span class="post-title">Podcast Havia de Passar</span><img src="cv/radio.jpg" alt="Foto feed 5" class="post-img"></div>
-        <div class="post" data-modal="p6" tabindex="0" role="button"><div class="post-shape g6"></div><span class="post-icon">💻</span><span class="post-tag">PROGRAMACIÓN Y DISEÑO WEB</span><span class="post-title">Porfolio Personal</span><img src="foto/pw2.png" alt="Foto feed 5" class="post-img" style="height: 100%; top: 0;"></div>
+        <div class="post" data-modal="p4" tabindex="0" role="button"><div class="post-shape g4"></div><span class="post-icon">🎯</span><span class="post-tag i18n" data-es="PROYECTO ACADÉMICO" data-ca="PROJECTE ACADÈMIC">PROYECTO ACADÉMICO</span><span class="post-title i18n" data-es="Estrategia de Redes" data-ca="Estratègia de Xarxes">Estrategia de Redes</span><img src="foto/barca.jpg" alt="Foto feed 4" class="post-img"></div>
+        <div class="post" data-modal="p5" tabindex="0" role="button"><div class="post-shape g5"></div><span class="post-icon">🎧</span><span class="post-tag i18n" data-es="PRODUCCIÓN Y REALIZACIÓN" data-ca="PRODUCCIÓ I REALITZACIÓ">PRODUCCIÓN Y REALIZACIÓN</span><span class="post-title">Podcast Havia de Passar</span><img src="cv/radio.jpg" alt="Foto feed 5" class="post-img"></div>
+        <div class="post" data-modal="p6" tabindex="0" role="button"><div class="post-shape g6"></div><span class="post-icon">💻</span><span class="post-tag i18n" data-es="PROGRAMACIÓN Y DISEÑO WEB" data-ca="PROGRAMACIÓ I DISSENY WEB">PROGRAMACIÓN Y DISEÑO WEB</span><span class="post-title i18n" data-es="Porfolio Personal" data-ca="Portafoli Personal">Porfolio Personal</span><img src="foto/pw2.png" alt="Foto feed 5" class="post-img" style="height: 100%; top: 0;"></div>
       </div>
     </div>
 
@@ -2618,14 +2626,14 @@ window.scrollTo(0, 0);
     <!-- TAGGED -->
     <div class="tab-panel" id="panel-tagged" role="tabpanel">
       <div class="tagged-grid">
-        <div class="tagged" tabindex="0" role="button"><img src="foto/otsi.jpg" alt="En control de sonido"><span class="tagged-label">Control de sonido</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="foto/tcms_copia.jpg" alt="Grabando"><span class="tagged-label">Edición</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="cv/hdv.jpg" alt="Con el equipo"><span class="tagged-label">Control de gravación</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="foto/estabi.jpg" alt="Rodaje"><span class="tagged-label">Cámara</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="cv/ser.webp" alt="Evento"><span class="tagged-label">Locutora en Ser Maestrat</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="cv/camara.jpg" alt="Detrás de cámaras"><span class="tagged-label">Cámara ENG</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="foto/otsi.jpg" alt="En control de sonido"><span class="tagged-label i18n" data-es="Control de sonido" data-ca="Control de so">Control de sonido</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="foto/tcms_copia.jpg" alt="Grabando"><span class="tagged-label i18n" data-es="Edición" data-ca="Edició">Edición</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="cv/hdv.jpg" alt="Con el equipo"><span class="tagged-label i18n" data-es="Control de gravación" data-ca="Control de gravació">Control de gravación</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="foto/estabi.jpg" alt="Rodaje"><span class="tagged-label i18n" data-es="Cámara" data-ca="Càmera">Cámara</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="cv/ser.webp" alt="Evento"><span class="tagged-label i18n" data-es="Locutora en Ser Maestrat" data-ca="Locutora a Ser Maestrat">Locutora en Ser Maestrat</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="cv/camara.jpg" alt="Detrás de cámaras"><span class="tagged-label i18n" data-es="Cámara ENG" data-ca="Càmera ENG">Cámara ENG</span></div>
         <div class="tagged" tabindex="0" role="button"><img src="cv/regidora.png" alt="Detrás de cámaras"><span class="tagged-label">Regidora</span></div>
-        <div class="tagged" tabindex="0" role="button"><img src="cv/pertiga.jpeg" alt="Detrás de cámaras"><span class="tagged-label">Auxiliar de Auido</span></div>
+        <div class="tagged" tabindex="0" role="button"><img src="cv/pertiga.jpeg" alt="Detrás de cámaras"><span class="tagged-label i18n" data-es="Auxiliar de Auido" data-ca="Auxiliar d'Àudio">Auxiliar de Auido</span></div>
 
       </div>
     </div>
@@ -2635,24 +2643,24 @@ window.scrollTo(0, 0);
 <!-- ================= FOOTER / CONTACTO ================= -->
 <footer id="contacto">
   <div class="dm-box reveal">
-    <h2>Hablemos</h2>
-    <p>Prometo responder mejor que ChatGPT.</p>
+    <h2 class="i18n" data-es="Hablemos" data-ca="Parlem">Hablemos</h2>
+    <p class="i18n" data-es="Prometo responder mejor que ChatGPT." data-ca="Prometo respondre millor que el ChatGPT.">Prometo responder mejor que ChatGPT.</p>
     <div class="links">
       <a href="https://www.instagram.com/__manci19" target="_blank" rel="noopener">Instagram</a>
       <a href="https://www.linkedin.com/in/lara-sebasti%C3%A0-5965361a9?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener">LinkedIn</a>
       <a href="https://wa.me/727799220" target="_blank" rel="noopener">WhatsApp</a>
     </div>
   </div>
-  <div class="foot-sign">© Lara Sebastià — edición y creación de contenido</div>
+  <div class="foot-sign i18n" data-es="© Lara Sebastià — edición y creación de contenido" data-ca="© Lara Sebastià — edició i creació de contingut">© Lara Sebastià — edición y creación de contenido</div>
 </footer>
 
 <!-- ================= MOBILE BOTTOM NAV ================= -->
 <div class="mobile-nav">
   <div class="row">
-    <button data-nav="home" aria-label="Inicio" onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠</button>
-    <button data-nav="posts" aria-label="Proyectos" onclick="document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">⊞</button>
-    <button data-nav="reels" aria-label="Reels" onclick="switchTab('reels'); document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">▷</button>
-    <button data-nav="contact" aria-label="Contacto" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">✉️</button>
+    <button data-nav="home" aria-label="Inicio" class="i18n-aria" data-aria-es="Inicio" data-aria-ca="Inici" onclick="window.scrollTo({top:0,behavior:'smooth'})">🏠</button>
+    <button data-nav="posts" aria-label="Proyectos" class="i18n-aria" data-aria-es="Proyectos" data-aria-ca="Projectes" onclick="document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">⊞</button>
+    <button data-nav="reels" aria-label="Reels" class="i18n-aria" data-aria-es="Reels" data-aria-ca="Reels" onclick="switchTab('reels'); document.getElementById('proyectos').scrollIntoView({behavior:'smooth'})">▷</button>
+    <button data-nav="contact" aria-label="Contacto" class="i18n-aria" data-aria-es="Contacto" data-aria-ca="Contacte" onclick="document.getElementById('contacto').scrollIntoView({behavior:'smooth'})">✉️</button>
   </div>
 </div>
 
@@ -2708,34 +2716,34 @@ window.scrollTo(0, 0);
     
     <div class="modal-cover g1">
       <img src="foto/100anys.jpg" alt="Rugby Femenino Poblenou" class="modal-cover-img">
-      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar">✕</button>
       
       <div style="position: absolute; text-shadow: 0 1px 10px rgba(0,0,0,0.8); bottom: 15px; left: 20px; right: 20px; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
         <span class="mono">🏉 Rugby Femenino Poblenou</span>
-        <h3 style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">          Construyendo la identidad digital de un equipo desde dentro del campo
+        <h3 class="i18n" data-es="Construyendo la identidad digital de un equipo desde dentro del campo" data-ca="Construint la identitat digital d'un equip des de dins del camp" style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">          Construyendo la identidad digital de un equipo desde dentro del campo
         </h3>
       </div>
     </div>
     <div class="modal-body">
      <div style="display:flex; align-items:center; justify-content:flex-end; gap:12px; margin-bottom:18px;">
-  <a href="https://www.instagram.com/rugbyfem_poblenou/" target="_blank" rel="noopener noreferrer" class="x-btn-follow" style="text-decoration:none; display:inline-block;">Seguir</a>
+  <a href="https://www.instagram.com/rugbyfem_poblenou/" target="_blank" rel="noopener noreferrer" class="x-btn-follow i18n" data-es="Seguir" data-ca="Seguir" style="text-decoration:none; display:inline-block;">Seguir</a>
 </div>
-      <div class="cs-block"><span class="label">El proyecto</span><p>Junto a una compañera gestiono las redes sociales del equipo femenino del Club Natació Poblenou.<br>Creamos una identidad digital propia para acercar el rugby femenino a nuevas jugadoras, aficionados y patrocinadores mediante contenido pensado para redes sociales.</p></div>
-      <div class="cs-block"><span class="label">Contenido creado</span><div class="pub-grid" id="pubGrid-p1" data-pub-project="p1"><!-- generado por JS desde projectPostsData --></div></div>
-      <div class="cs-block"><span class="label">El reto</span><p>No queríamos limitarnos a publicar resultados. El objetivo era enseñar el día a día del equipo y construir una comunidad alrededor de las personas que hay detrás del deporte.</p></div>
-      <div class="cs-block"><span class="label">Mi papel</span>
-        <p>Me encargo, junto a otra compañera del equipo, de todo el proceso de creación de contenido:</p>
+      <div class="cs-block"><span class="label i18n" data-es="El proyecto" data-ca="El projecte">El proyecto</span><p class="i18n-html" data-es-html="Junto a una compañera gestiono las redes sociales del equipo femenino del Club Natació Poblenou.&lt;br&gt;Creamos una identidad digital propia para acercar el rugby femenino a nuevas jugadoras, aficionados y patrocinadores mediante contenido pensado para redes sociales." data-ca-html="Juntament amb una companya gestiono les xarxes socials de l'equip femení del Club Natació Poblenou.&lt;br&gt;Vam crear una identitat digital pròpia per apropar el rugbi femení a noves jugadores, aficionats i patrocinadors mitjançant contingut pensat per a xarxes socials.">Junto a una compañera gestiono las redes sociales del equipo femenino del Club Natació Poblenou.<br>Creamos una identidad digital propia para acercar el rugby femenino a nuevas jugadoras, aficionados y patrocinadores mediante contenido pensado para redes sociales.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Contenido creado" data-ca="Contingut creat">Contenido creado</span><div class="pub-grid" id="pubGrid-p1" data-pub-project="p1"><!-- generado por JS desde projectPostsData --></div></div>
+      <div class="cs-block"><span class="label i18n" data-es="El reto" data-ca="El repte">El reto</span><p class="i18n" data-es="No queríamos limitarnos a publicar resultados. El objetivo era enseñar el día a día del equipo y construir una comunidad alrededor de las personas que hay detrás del deporte." data-ca="No volíem limitar-nos a publicar resultats. L'objectiu era ensenyar el dia a dia de l'equip i construir una comunitat al voltant de les persones que hi ha darrere de l'esport.">No queríamos limitarnos a publicar resultados. El objetivo era enseñar el día a día del equipo y construir una comunidad alrededor de las personas que hay detrás del deporte.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Mi papel" data-ca="El meu paper">Mi papel</span>
+        <p class="i18n" data-es="Me encargo, junto a otra compañera del equipo, de todo el proceso de creación de contenido:" data-ca="M'encarrego, juntament amb una altra companya de l'equip, de tot el procés de creació de contingut:">Me encargo, junto a otra compañera del equipo, de todo el proceso de creación de contenido:</p>
         <div class="role-chips">
-          <span class="role-chip">💡 Ideación de contenidos</span>
-          <span class="role-chip">📅 Planificación de publicaciones</span>
-          <span class="role-chip">🎥 Grabación de vídeo y fotografía</span>
-          <span class="role-chip">✂️ Edición de Reels y piezas para Instagram</span>
-          <span class="role-chip">🎨 Diseño de carteles para anunciar partidos y eventos</span>
-          <span class="role-chip">📱 Publicación y gestión del perfil</span>
+          <span class="role-chip i18n" data-es="💡 Ideación de contenidos" data-ca="💡 Ideació de continguts">💡 Ideación de contenidos</span>
+          <span class="role-chip i18n" data-es="📅 Planificación de publicaciones" data-ca="📅 Planificació de publicacions">📅 Planificación de publicaciones</span>
+          <span class="role-chip i18n" data-es="🎥 Grabación de vídeo y fotografía" data-ca="🎥 Gravació de vídeo i fotografia">🎥 Grabación de vídeo y fotografía</span>
+          <span class="role-chip i18n" data-es="✂️ Edición de Reels y piezas para Instagram" data-ca="✂️ Edició de Reels i peces per a Instagram">✂️ Edición de Reels y piezas para Instagram</span>
+          <span class="role-chip i18n" data-es="🎨 Diseño de carteles para anunciar partidos y eventos" data-ca="🎨 Disseny de cartells per anunciar partits i esdeveniments">🎨 Diseño de carteles para anunciar partidos y eventos</span>
+          <span class="role-chip i18n" data-es="📱 Publicación y gestión del perfil" data-ca="📱 Publicació i gestió del perfil">📱 Publicación y gestión del perfil</span>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Proceso</span><p>💡 <strong>Idea</strong><br>Todo comenzaba preguntándonos qué historia queríamos contar esa semana.<br>📹 <strong>Grabación</strong><br>Aprovechábamos entrenamientos y partidos para capturar momentos reales.<br>✂️ <strong>Edición</strong><br>Adaptábamos el contenido al formato de Instagram, buscando ritmo y claridad.<br>📲 <strong>Publicación</strong><br>Programábamos y ajustábamos cada pieza según el calendario deportivo.</p></div>
-      <div class="cs-block"><span class="label">Herramientas</span>
+      <div class="cs-block"><span class="label i18n" data-es="Proceso" data-ca="Procés">Proceso</span><p class="i18n-html" data-es-html="💡 &lt;strong&gt;Idea&lt;/strong&gt;&lt;br&gt;Todo comenzaba preguntándonos qué historia queríamos contar esa semana.&lt;br&gt;📹 &lt;strong&gt;Grabación&lt;/strong&gt;&lt;br&gt;Aprovechábamos entrenamientos y partidos para capturar momentos reales.&lt;br&gt;✂️ &lt;strong&gt;Edición&lt;/strong&gt;&lt;br&gt;Adaptábamos el contenido al formato de Instagram, buscando ritmo y claridad.&lt;br&gt;📲 &lt;strong&gt;Publicación&lt;/strong&gt;&lt;br&gt;Programábamos y ajustábamos cada pieza según el calendario deportivo." data-ca-html="💡 &lt;strong&gt;Idea&lt;/strong&gt;&lt;br&gt;Tot començava preguntant-nos quina història volíem explicar aquella setmana.&lt;br&gt;📹 &lt;strong&gt;Gravació&lt;/strong&gt;&lt;br&gt;Aprofitàvem entrenaments i partits per capturar moments reals.&lt;br&gt;✂️ &lt;strong&gt;Edició&lt;/strong&gt;&lt;br&gt;Adaptàvem el contingut al format d'Instagram, buscant ritme i claredat.&lt;br&gt;📲 &lt;strong&gt;Publicació&lt;/strong&gt;&lt;br&gt;Programàvem i ajustàvem cada peça segons el calendari esportiu.">💡 <strong>Idea</strong><br>Todo comenzaba preguntándonos qué historia queríamos contar esa semana.<br>📹 <strong>Grabación</strong><br>Aprovechábamos entrenamientos y partidos para capturar momentos reales.<br>✂️ <strong>Edición</strong><br>Adaptábamos el contenido al formato de Instagram, buscando ritmo y claridad.<br>📲 <strong>Publicación</strong><br>Programábamos y ajustábamos cada pieza según el calendario deportivo.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Herramientas" data-ca="Eines">Herramientas</span>
         <div class="tools-stories">
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/premiere.png" alt="Premiere Pro" loading="lazy"></div></div><span class="tool-story-name">Premiere Pro</span></div>
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/capcut.png" alt="CapCut" loading="lazy"></div></div><span class="tool-story-name">CapCut</span></div>
@@ -2745,18 +2753,20 @@ window.scrollTo(0, 0);
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/instagram.jpg" alt="Instagram" loading="lazy"></div></div><span class="tool-story-name">Instagram</span></div>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Resultado</span><p>📱 Decenas de publicaciones · 🎥 Reels originales · 🏉 Nueva identidad visual · 💙 Mayor cercanía con la comunidad</p></div>
-      <div class="cs-block"><span class="label">Este proyecto me enseño...</span><p>Que un buen proyecto no necesita un gran presupuesto. Solo entender qué emociona a quien está al otro lado de la pantalla<br>Aprendí a planificar contenido con muy pocos recursos, a tomar decisiones rápidas durante los partidos y a adaptar cada idea al tiempo y material disponibles. Pero, sobre todo, entendí que las redes sociales no consisten únicamente en publicar contenido, sino en construir una identidad capaz de conectar con las personas.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span><p class="i18n" data-es="📱 Decenas de publicaciones · 🎥 Reels originales · 🏉 Nueva identidad visual · 💙 Mayor cercanía con la comunidad" data-ca="📱 Desenes de publicacions · 🎥 Reels originals · 🏉 Nova identitat visual · 💙 Més proximitat amb la comunitat">📱 Decenas de publicaciones · 🎥 Reels originales · 🏉 Nueva identidad visual · 💙 Mayor cercanía con la comunidad</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Este proyecto me enseño..." data-ca="Aquest projecte em va ensenyar...">Este proyecto me enseño...</span><p class="i18n-html" data-es-html="Que un buen proyecto no necesita un gran presupuesto. Solo entender qué emociona a quien está al otro lado de la pantalla&lt;br&gt;Aprendí a planificar contenido con muy pocos recursos, a tomar decisiones rápidas durante los partidos y a adaptar cada idea al tiempo y material disponibles. Pero, sobre todo, entendí que las redes sociales no consisten únicamente en publicar contenido, sino en construir una identidad capaz de conectar con las personas." data-ca-html="Que un bon projecte no necessita un gran pressupost. Només cal entendre què emociona qui és a l'altra banda de la pantalla&lt;br&gt;Vaig aprendre a planificar contingut amb molt pocs recursos, a prendre decisions ràpides durant els partits i a adaptar cada idea al temps i material disponibles. Però, sobretot, vaig entendre que les xarxes socials no consisteixen únicament a publicar contingut, sinó a construir una identitat capaç de connectar amb les persones.">Que un buen proyecto no necesita un gran presupuesto. Solo entender qué emociona a quien está al otro lado de la pantalla<br>Aprendí a planificar contenido con muy pocos recursos, a tomar decisiones rápidas durante los partidos y a adaptar cada idea al tiempo y material disponibles. Pero, sobre todo, entendí que las redes sociales no consisten únicamente en publicar contenido, sino en construir una identidad capaz de conectar con las personas.</p></div>
       <div class="cs-block"><div class="cta-box">
     <span class="cta-box-photo" aria-hidden="true"></span>
     <span class="cta-box-shade" aria-hidden="true"></span>
     <span class="cta-box-line" aria-hidden="true"></span>
     <span class="cta-box-orb" aria-hidden="true"></span>
     <div class="cta-box-content">
-      <span class="cta-box-tag">▶ Colección de Reels</span>
-      <p class="cta-desc">Todos los vídeos creados para este proyecto</p>
+      <span class="cta-box-tag i18n" data-es="▶ Colección de Reels" data-ca="▶ Col·lecció de Reels">▶ Colección de Reels</span>
+      <p class="cta-desc i18n" data-es="Todos los vídeos creados para este proyecto" data-ca="Tots els vídeos creats per a aquest projecte">Todos los vídeos creados para este proyecto</p>
       <a href="#"
-         class="cta-btn"
+         class="cta-btn i18n"
+         data-es="Ver reels"
+         data-ca="Veure reels"
          data-open-reels="c1"
          onclick="document.querySelector('#modal-p1 .modal-close')?.click(); setTimeout(() => { document.querySelector('[data-reels=\'c1\']')?.click() || document.querySelector('[data-collection=\'c1\']')?.click(); }, 100); return false;">
         Ver reels
@@ -2770,14 +2780,14 @@ window.scrollTo(0, 0);
     <div class="modal-overlay" id="modal-p2">
   <div class="modal" role="dialog" aria-modal="true">
     <div class="modal-cover g2"><img src="foto/logo_tcms.jpeg" class="modal-cover-img" alt="Tu cara me suena">
-      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar">✕</button>
       <div style="position: absolute; text-shadow: 0 1px 10px rgba(0,0,0,0.8); bottom: 15px; left: 20px; right: 20px; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
         <span class="mono">🎞️ Tu cara me suena</span>
-        <h3 style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">Edición del programa especial"Momentazos"</h3>
+        <h3 class="i18n" data-es="Edición del programa especial&quot;Momentazos&quot;" data-ca="Edició del programa especial &quot;Momentazos&quot;" style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">Edición del programa especial"Momentazos"</h3>
       </div>
     </div>
     <div class="modal-body">
-    <div class="cs-block"><span class="label">El proyecto</span><p>El especial reunía algunos de los momentos más memorables de Tu Cara Me Suena. Mi trabajo consistía en transformar horas de material en piezas breves, dinámicas y coherentes, seleccionando las actuaciones y comentarios que mejor contaban cada historia.</p></div>
+    <div class="cs-block"><span class="label i18n" data-es="El proyecto" data-ca="El projecte">El proyecto</span><p class="i18n" data-es="El especial reunía algunos de los momentos más memorables de Tu Cara Me Suena. Mi trabajo consistía en transformar horas de material en piezas breves, dinámicas y coherentes, seleccionando las actuaciones y comentarios que mejor contaban cada historia." data-ca="L'especial reunia alguns dels moments més memorables de Tu Cara Me Suena. La meva feina consistia a transformar hores de material en peces breus, dinàmiques i coherents, seleccionant les actuacions i comentaris que millor explicaven cada història.">El especial reunía algunos de los momentos más memorables de Tu Cara Me Suena. Mi trabajo consistía en transformar horas de material en piezas breves, dinámicas y coherentes, seleccionando las actuaciones y comentarios que mejor contaban cada historia.</p></div>
 
 
       <div class="yt-zone">
@@ -2785,7 +2795,7 @@ window.scrollTo(0, 0);
         <div class="yt-main">
           <!-- Reproductor -->
           <div class="yt-player-wrap" style="position: relative;">
-            <span class="yt-video-badge" id="yt-player-tag-p2">Reproduciendo ahora</span>
+            <span class="yt-video-badge i18n" id="yt-player-tag-p2" data-es="Reproduciendo ahora" data-ca="Reproduint ara">Reproduciendo ahora</span>
             <video class="yt-player" id="yt-player-p2" controls playsinline style="display:none;"></video>
             <div class="yt-player-placeholder g2" id="yt-player-placeholder-p2">
               <span class="yt-player-play">▶</span>
@@ -2806,24 +2816,24 @@ window.scrollTo(0, 0);
         </div>
       </div> 
 
-      <div class="cs-block"><span class="label">El reto</span><p>Cada actuación planteaba un reto diferente. Algunas buscaban emocionar, otras hacer reír o sorprender. El desafío consistía en condensarlas sin perder su esencia, seleccionando los momentos clave e integrando los comentarios del jurado para que cada montaje siguiera transmitiendo exactamente la misma emoción que la actuación original.</p></div>
-      <div class="cs-block"><span class="label">Mi papel</span>
-        <p>Mi trabajo consistía en convertir horas de material en piezas breves capaces de mantener el ritmo, la emoción y el humor del programa.</p>
+      <div class="cs-block"><span class="label i18n" data-es="El reto" data-ca="El repte">El reto</span><p class="i18n" data-es="Cada actuación planteaba un reto diferente. Algunas buscaban emocionar, otras hacer reír o sorprender. El desafío consistía en condensarlas sin perder su esencia, seleccionando los momentos clave e integrando los comentarios del jurado para que cada montaje siguiera transmitiendo exactamente la misma emoción que la actuación original." data-ca="Cada actuació plantejava un repte diferent. Algunes buscaven emocionar, altres fer riure o sorprendre. El desafiament consistia a condensar-les sense perdre la seva essència, seleccionant els moments clau i integrant els comentaris del jurat perquè cada muntatge continués transmetent exactament la mateixa emoció que l'actuació original.">Cada actuación planteaba un reto diferente. Algunas buscaban emocionar, otras hacer reír o sorprender. El desafío consistía en condensarlas sin perder su esencia, seleccionando los momentos clave e integrando los comentarios del jurado para que cada montaje siguiera transmitiendo exactamente la misma emoción que la actuación original.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Mi papel" data-ca="El meu paper">Mi papel</span>
+        <p class="i18n" data-es="Mi trabajo consistía en convertir horas de material en piezas breves capaces de mantener el ritmo, la emoción y el humor del programa." data-ca="La meva feina consistia a convertir hores de material en peces breus capaces de mantenir el ritme, l'emoció i l'humor del programa.">Mi trabajo consistía en convertir horas de material en piezas breves capaces de mantener el ritmo, la emoción y el humor del programa.</p>
         <div class="role-chips">
-          <span class="role-chip">🎬 Selección de actuaciones entre más de 100 números musicales.</span>
-          <span class="role-chip">✂️ Edición y condensación de actuaciones completas.</span>
-          <span class="role-chip">🎙️ Integración de comentarios del jurado para reforzar la narrativa.</span>
-          <span class="role-chip">🧩 Construcción de bloques temáticos para el especial.</span>
+          <span class="role-chip i18n" data-es="🎬 Selección de actuaciones entre más de 100 números musicales." data-ca="🎬 Selecció d'actuacions entre més de 100 números musicals.">🎬 Selección de actuaciones entre más de 100 números musicales.</span>
+          <span class="role-chip i18n" data-es="✂️ Edición y condensación de actuaciones completas." data-ca="✂️ Edició i condensació d'actuacions completes.">✂️ Edición y condensación de actuaciones completas.</span>
+          <span class="role-chip i18n" data-es="🎙️ Integración de comentarios del jurado para reforzar la narrativa." data-ca="🎙️ Integració de comentaris del jurat per reforçar la narrativa.">🎙️ Integración de comentarios del jurado para reforzar la narrativa.</span>
+          <span class="role-chip i18n" data-es="🧩 Construcción de bloques temáticos para el especial." data-ca="🧩 Construcció de blocs temàtics per a l'especial.">🧩 Construcción de bloques temáticos para el especial.</span>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Proceso</span><p>🎬<strong>Selección del material</strong><br>Cada pieza comenzaba revisando la actuación completa para identificar los momentos más representativos y decidir qué debía mantenerse en la versión final.<br>✂️ <strong>Edición de la actuación</strong><br>El siguiente paso consistía en condensar la interpretación eliminando todo aquello que no aportaba, procurando que el montaje conservara un ritmo natural y que los cortes pasaran completamente desapercibidos.<br>🎙️<strong>Integración del jurado</strong><br>Seleccionaba las intervenciones que mejor complementaban cada actuación, ya fuera aportando emoción, humor o contexto, e integrándolas de forma fluida dentro del montaje.<br>🧩<strong>Construcción del programa</strong><br>Una vez terminadas las piezas individuales, comenzaba una segunda fase de edición: organizarlas por temáticas, decidir su orden y ajustar el ritmo del conjunto para que el especial funcionara como un programa coherente y no como una simple sucesión de actuaciones.<br>📺<strong>Revisión final</strong><br>Antes de dar por terminado el montaje, revisaba el programa completo para asegurar una continuidad fluida, un ritmo constante y una experiencia homogénea de principio a fin.</p></div>
-      <div class="cs-block"><span class="label">Herramientas</span>
+      <div class="cs-block"><span class="label i18n" data-es="Proceso" data-ca="Procés">Proceso</span><p class="i18n-html" data-es-html="🎬&lt;strong&gt;Selección del material&lt;/strong&gt;&lt;br&gt;Cada pieza comenzaba revisando la actuación completa para identificar los momentos más representativos y decidir qué debía mantenerse en la versión final.&lt;br&gt;✂️ &lt;strong&gt;Edición de la actuación&lt;/strong&gt;&lt;br&gt;El siguiente paso consistía en condensar la interpretación eliminando todo aquello que no aportaba, procurando que el montaje conservara un ritmo natural y que los cortes pasaran completamente desapercibidos.&lt;br&gt;🎙️&lt;strong&gt;Integración del jurado&lt;/strong&gt;&lt;br&gt;Seleccionaba las intervenciones que mejor complementaban cada actuación, ya fuera aportando emoción, humor o contexto, e integrándolas de forma fluida dentro del montaje.&lt;br&gt;🧩&lt;strong&gt;Construcción del programa&lt;/strong&gt;&lt;br&gt;Una vez terminadas las piezas individuales, comenzaba una segunda fase de edición: organizarlas por temáticas, decidir su orden y ajustar el ritmo del conjunto para que el especial funcionara como un programa coherente y no como una simple sucesión de actuaciones.&lt;br&gt;📺&lt;strong&gt;Revisión final&lt;/strong&gt;&lt;br&gt;Antes de dar por terminado el montaje, revisaba el programa completo para asegurar una continuidad fluida, un ritmo constante y una experiencia homogénea de principio a fin." data-ca-html="🎬&lt;strong&gt;Selecció del material&lt;/strong&gt;&lt;br&gt;Cada peça començava revisant l'actuació completa per identificar els moments més representatius i decidir què calia mantenir en la versió final.&lt;br&gt;✂️ &lt;strong&gt;Edició de l'actuació&lt;/strong&gt;&lt;br&gt;El següent pas consistia a condensar la interpretació eliminant tot allò que no aportava, procurant que el muntatge conservés un ritme natural i que els talls passessin completament desapercebuts.&lt;br&gt;🎙️&lt;strong&gt;Integració del jurat&lt;/strong&gt;&lt;br&gt;Seleccionava les intervencions que millor complementaven cada actuació, ja fos aportant emoció, humor o context, i integrant-les de forma fluida dins del muntatge.&lt;br&gt;🧩&lt;strong&gt;Construcció del programa&lt;/strong&gt;&lt;br&gt;Un cop acabades les peces individuals, començava una segona fase d'edició: organitzar-les per temàtiques, decidir el seu ordre i ajustar el ritme del conjunt perquè l'especial funcionés com un programa coherent i no com una simple successió d'actuacions.&lt;br&gt;📺&lt;strong&gt;Revisió final&lt;/strong&gt;&lt;br&gt;Abans de donar per acabat el muntatge, revisava el programa complet per assegurar una continuïtat fluida, un ritme constant i una experiència homogènia de principi a fi.">🎬<strong>Selección del material</strong><br>Cada pieza comenzaba revisando la actuación completa para identificar los momentos más representativos y decidir qué debía mantenerse en la versión final.<br>✂️ <strong>Edición de la actuación</strong><br>El siguiente paso consistía en condensar la interpretación eliminando todo aquello que no aportaba, procurando que el montaje conservara un ritmo natural y que los cortes pasaran completamente desapercibidos.<br>🎙️<strong>Integración del jurado</strong><br>Seleccionaba las intervenciones que mejor complementaban cada actuación, ya fuera aportando emoción, humor o contexto, e integrándolas de forma fluida dentro del montaje.<br>🧩<strong>Construcción del programa</strong><br>Una vez terminadas las piezas individuales, comenzaba una segunda fase de edición: organizarlas por temáticas, decidir su orden y ajustar el ritmo del conjunto para que el especial funcionara como un programa coherente y no como una simple sucesión de actuaciones.<br>📺<strong>Revisión final</strong><br>Antes de dar por terminado el montaje, revisaba el programa completo para asegurar una continuidad fluida, un ritmo constante y una experiencia homogénea de principio a fin.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Herramientas" data-ca="Eines">Herramientas</span>
         <div class="tools-stories">
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/avid.jpg" alt="Premiere Pro" loading="lazy"></div></div><span class="tool-story-name">Avid Media Composer</span></div>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Resultado</span><p>🎬 +100 actuaciones revisadas · ✂️ Decenas de piezas editadas · 🎙️ Integración de comentarios del jurado · 📺 Especial para emisión en Antena 3.</p></div>
-      <div class="cs-block"><span class="label">Este proyecto me enseñó...</span><p>que cada decisión de montaje debe tener una intención. No se trata solo de reducir una actuación, sino de conservar aquello que hace que funcione y provoque exactamente la reacción que busca en el espectador.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span><p class="i18n" data-es="🎬 +100 actuaciones revisadas · ✂️ Decenas de piezas editadas · 🎙️ Integración de comentarios del jurado · 📺 Especial para emisión en Antena 3." data-ca="🎬 +100 actuacions revisades · ✂️ Desenes de peces editades · 🎙️ Integració de comentaris del jurat · 📺 Especial per a emissió a Antena 3.">🎬 +100 actuaciones revisadas · ✂️ Decenas de piezas editadas · 🎙️ Integración de comentarios del jurado · 📺 Especial para emisión en Antena 3.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Este proyecto me enseñó..." data-ca="Aquest projecte em va ensenyar...">Este proyecto me enseñó...</span><p class="i18n" data-es="que cada decisión de montaje debe tener una intención. No se trata solo de reducir una actuación, sino de conservar aquello que hace que funcione y provoque exactamente la reacción que busca en el espectador." data-ca="que cada decisió de muntatge ha de tenir una intenció. No es tracta només de reduir una actuació, sinó de conservar allò que fa que funcioni i provoqui exactament la reacció que busca en l'espectador.">que cada decisión de montaje debe tener una intención. No se trata solo de reducir una actuación, sino de conservar aquello que hace que funcione y provoque exactamente la reacción que busca en el espectador.</p></div>
     </div> <!-- /modal-body p2 -->
   </div> <!-- /modal p2 -->
 </div> <!-- /modal-overlay p2 -->
@@ -2835,7 +2845,7 @@ window.scrollTo(0, 0);
     <div class="modal" role="dialog" aria-modal="true" style="padding: 0; border-radius: 16px; overflow: hidden;">
     <div class="modal-cover g3">
       <img src="foto/sport.png" class="modal-cover-img" alt="POPSPORT" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar">✕</button>
       <div style="position: absolute; text-shadow: 0 1px 10px rgba(0,0,0,0.8); bottom: 15px; left: 20px; right: 20px; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
        </div>
     </div>
@@ -2857,19 +2867,19 @@ window.scrollTo(0, 0);
         <div class="x-profile-info">
           <div class="x-name">POPSPORT <span style="color:#1d9bf0; font-size: 0.9em;">✔</span></div>
           <div class="x-handle">@_popsport</div>
-          <div class="x-bio">
+          <div class="x-bio i18n" data-es="Proyecto personal en desarrollo que pretende explora nuevas formas de contar el deporte en redes sociales. Porque detrás de cada deporte siempre hay una historia que merece ser descubierta." data-ca="Projecte personal en desenvolupament que pretén explorar noves formes d'explicar l'esport a les xarxes socials. Perquè darrere de cada esport sempre hi ha una història que mereix ser descoberta.">
          Proyecto personal en desarrollo que pretende explora nuevas formas de contar el deporte en redes sociales. Porque detrás de cada deporte siempre hay una historia que merece ser descubierta.          </div>
           <div class="x-meta-row">
             <span>📍 Barcelona</span>
             <span class="x-link-popsport" onclick="openPopsportLinktree()" role="button" tabindex="0" onkeydown="if(event.key==='Enter'){openPopsportLinktree()}">🔗 popsport.com</span>
-            <span>📅 Empezó en junio de 2026</span>
+            <span class="i18n" data-es="📅 Empezó en junio de 2026" data-ca="📅 Va començar el juny de 2026">📅 Empezó en junio de 2026</span>
           </div>
         </div>
 
         <!-- PESTAÑAS SIMULADAS DE X -->
         <div class="x-nav-tabs">
-          <div class="x-tab active" id="x-tab-hilos" onclick="switchXTab('hilos')">Hilos</div>
-          <div class="x-tab" id="x-tab-herramientas" onclick="switchXTab('herramientas')">Herramientas</div>
+          <div class="x-tab active i18n" id="x-tab-hilos" onclick="switchXTab('hilos')" data-es="Hilos" data-ca="Fils">Hilos</div>
+          <div class="x-tab i18n" id="x-tab-herramientas" onclick="switchXTab('herramientas')" data-es="Herramientas" data-ca="Eines">Herramientas</div>
         </div>
 
     <!-- 4. TIMELINE DE HILOS DE CONVERSACIÓN -->
@@ -2879,7 +2889,7 @@ window.scrollTo(0, 0);
 
   <!-- TWEET FIJADO: enlaza directamente a la colección de Reels de POPSPORT -->
   <div class="x-pinned-tweet">
-    <div class="x-pinned-label">📌 Tweet fijado</div>
+    <div class="x-pinned-label i18n" data-es="📌 Tweet fijado" data-ca="📌 Tuit fixat">📌 Tweet fijado</div>
     <div class="x-tweet" style="margin-bottom:0;">
       <div class="x-tweet-avatar"><img src="foto/sport.png" alt="POPSPORT"></div>
       <div class="x-tweet-content">
@@ -2887,8 +2897,8 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">🎬 ¿Quieres ver el resultado de todo este trabajo?<br>Aquí puedes ver algunos de los vídeos publicados de POPSPORT.</div>
-        <a href="#" class="x-pinned-cta" data-open-reels="c5" onclick="document.querySelector('#modal-p3 .modal-close')?.click(); setTimeout(() => { document.querySelector('[data-collection=\'c5\']')?.click(); }, 100); return false;">▶ Abrir colección de Reels</a>
+        <div class="x-tweet-text i18n-html" data-es-html="🎬 ¿Quieres ver el resultado de todo este trabajo?&lt;br&gt;Aquí puedes ver algunos de los vídeos publicados de POPSPORT." data-ca-html="🎬 Vols veure el resultat de tota aquesta feina?&lt;br&gt;Aquí pots veure alguns dels vídeos publicats de POPSPORT.">🎬 ¿Quieres ver el resultado de todo este trabajo?<br>Aquí puedes ver algunos de los vídeos publicados de POPSPORT.</div>
+        <a href="#" class="x-pinned-cta i18n" data-es="▶ Abrir colección de Reels" data-ca="▶ Obre la col·lecció de Reels" data-open-reels="c5" onclick="document.querySelector('#modal-p3 .modal-close')?.click(); setTimeout(() => { document.querySelector('[data-collection=\'c5\']')?.click(); }, 100); return false;">▶ Abrir colección de Reels</a>
       </div>
     </div>
   </div>
@@ -2906,7 +2916,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-handle">@popsport</span>
           <span class="x-tweet-time"></span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="&lt;b&gt;💡¿CÓMO NACIÓ POPSPORT?💡&lt;/b&gt;&lt;br&gt;Todo el mundo conoce el deporte.&lt;br&gt;Pero muy pocos conocen la historia📖." data-ca-html="&lt;b&gt;💡COM VA NÉIXER POPSPORT?💡&lt;/b&gt;&lt;br&gt;Tothom coneix l'esport.&lt;br&gt;Però molt pocs en coneixen la història📖.">
           <b>💡¿CÓMO NACIÓ POPSPORT?💡</b><br>Todo el mundo conoce el deporte.<br>Pero muy pocos conocen la historia📖.
         </div>
       </div>
@@ -2921,7 +2931,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-handle">@popsport</span>
           <span class="x-tweet-time"></span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="A veces no hace falta que te guste un deporte para que te fascine una de sus historias.&lt;br&gt;Puede que nunca hayas visto un partido de fútbol, pero probablemente sepas que Maradona marcó un gol con la mano.&lt;br&gt;O sabes quién marcó el gol que le dio un mundial a España.&lt;br&gt;Al final, no recordamos solo los resultados. Recordamos las historias." data-ca-html="De vegades no cal que t'agradi un esport perquè et fascini una de les seves històries.&lt;br&gt;Potser mai has vist un partit de futbol, però probablement saps que Maradona va marcar un gol amb la mà.&lt;br&gt;O saps qui va marcar el gol que li va donar un mundial a Espanya.&lt;br&gt;Al final, no recordem només els resultats. Recordem les històries.">
          A veces no hace falta que te guste un deporte para que te fascine una de sus historias.<br>Puede que nunca hayas visto un partido de fútbol, pero probablemente sepas que Maradona marcó un gol con la mano.<br>O sabes quién marcó el gol que le dio un mundial a España.<br>Al final, no recordamos solo los resultados. Recordamos las historias.
           </div>
         <div class="x-tweet-media-grid count-2">
@@ -2932,7 +2942,7 @@ window.scrollTo(0, 0);
     </div>
 
     <!-- Indicador para hacer clic (abre el hilo completo en el mismo modal) -->
-    <button type="button" class="x-thread-toggle-btn" onclick="event.stopPropagation(); openThread('hilo1')">Mostrar hilo completo <span>→</span></button>
+    <button type="button" class="x-thread-toggle-btn i18n-html" onclick="event.stopPropagation(); openThread('hilo1')" data-es-html="Mostrar hilo completo &lt;span&gt;→&lt;/span&gt;" data-ca-html="Mostra el fil complet &lt;span&gt;→&lt;/span&gt;">Mostrar hilo completo <span>→</span></button>
   </div>
 
   <!-- HILO 2: Identidad Visual y Concepto (vista previa: 2 primeros tweets) -->
@@ -2947,7 +2957,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="&lt;b&gt;⚙️Construyendo POPSPORT&lt;/b&gt;&lt;br&gt;Después de definir la idea, el siguiente reto era convertirla en un proyecto real" data-ca-html="&lt;b&gt;⚙️Construint POPSPORT&lt;/b&gt;&lt;br&gt;Després de definir la idea, el següent repte era convertir-la en un projecte real">
           <b>⚙️Construyendo POPSPORT</b><br>
           Después de definir la idea, el siguiente reto era convertirla en un proyecto real
         </div>
@@ -2963,7 +2973,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="Desde el principio tuve claro que POPSPORT debía ser un proyecto &lt;b&gt;multiplataforma&lt;/b&gt;, capaz de adaptarse a la forma en la que hoy consumimos contenido." data-ca-html="Des del principi tenia clar que POPSPORT havia de ser un projecte &lt;b&gt;multiplataforma&lt;/b&gt;, capaç d'adaptar-se a la forma en què avui consumim contingut.">
           Desde el principio tuve claro que POPSPORT debía ser un proyecto <b>multiplataforma</b>, capaz de adaptarse a la forma en la que hoy consumimos contenido.
         </div>
         <div class="x-tweet-media-grid count-3">
@@ -2975,7 +2985,7 @@ window.scrollTo(0, 0);
     </div>
 
     <!-- Indicador para hacer clic (abre el hilo completo en el mismo modal) -->
-    <button type="button" class="x-thread-toggle-btn" onclick="event.stopPropagation(); openThread('hilo2')">Mostrar hilo completo <span>→</span></button>
+    <button type="button" class="x-thread-toggle-btn i18n-html" onclick="event.stopPropagation(); openThread('hilo2')" data-es-html="Mostrar hilo completo &lt;span&gt;→&lt;/span&gt;" data-ca-html="Mostra el fil complet &lt;span&gt;→&lt;/span&gt;">Mostrar hilo completo <span>→</span></button>
   </div>
 
   <!-- HILO 3: Estrategia de Contenido y Redes (vista previa: 2 primeros tweets) -->
@@ -2990,7 +3000,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="&lt;b&gt;🎞️ASÍ SE CREA UN VÍDEO&lt;/b&gt;&lt;br&gt;Este es el proceso de creación de un video:" data-ca-html="&lt;b&gt;🎞️AIXÍ ES CREA UN VÍDEO&lt;/b&gt;&lt;br&gt;Aquest és el procés de creació d'un vídeo:">
           <b>🎞️ASÍ SE CREA UN VÍDEO</b><br>
           Este es el proceso de creación de un video:
         </div>
@@ -3006,7 +3016,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="📄Documentación&lt;br&gt;Todo empieza con una fase de investigación.&lt;br&gt;Antes de empezar a escribir, recopilo información de diferentes fuentes para asegurar que el contenido sea claro, riguroso y fácil de comprender." data-ca-html="📄Documentació&lt;br&gt;Tot comença amb una fase de recerca.&lt;br&gt;Abans de començar a escriure, recopilo informació de diferents fonts per assegurar que el contingut sigui clar, rigorós i fàcil de comprendre.">
         📄Documentación<br>Todo empieza con una fase de investigación.<br>Antes de empezar a escribir, recopilo información de diferentes fuentes para asegurar que el contenido sea claro, riguroso y fácil de comprender.
         </div>
         <div class="x-tweet-media-grid count-1">
@@ -3016,7 +3026,7 @@ window.scrollTo(0, 0);
     </div>
 
     <!-- Indicador para hacer clic (abre el hilo completo en el mismo modal) -->
-    <button type="button" class="x-thread-toggle-btn" onclick="event.stopPropagation(); openThread('hilo3')">Mostrar hilo completo <span>→</span></button>
+    <button type="button" class="x-thread-toggle-btn i18n-html" onclick="event.stopPropagation(); openThread('hilo3')" data-es-html="Mostrar hilo completo &lt;span&gt;→&lt;/span&gt;" data-ca-html="Mostra el fil complet &lt;span&gt;→&lt;/span&gt;">Mostrar hilo completo <span>→</span></button>
   </div>
 
   <!-- HILO 4: Comunidad y Lanzamiento (vista previa: 2 primeros tweets) -->
@@ -3031,7 +3041,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="&lt;b&gt;📚QUE ME ESTÁ ENSEÑADO ESTE PROYECTO&lt;/b&gt;" data-ca-html="&lt;b&gt;📚QUÈ M'ESTÀ ENSENYANT AQUEST PROJECTE&lt;/b&gt;">
           <b>📚QUE ME ESTÁ ENSEÑADO ESTE PROYECTO</b>
         </div>
       </div>
@@ -3046,7 +3056,7 @@ window.scrollTo(0, 0);
           <span class="x-tweet-author">POPSPORT</span>
           <span class="x-tweet-handle">@popsport</span>
         </div>
-        <div class="x-tweet-text">
+        <div class="x-tweet-text i18n-html" data-es-html="POPSPORT me ha obligado a salir de mi zona de confort. Por primera vez tuve que trabajar con herramientas de planificación, gestión y monitorización que nunca antes había necesitado." data-ca-html="POPSPORT m'ha obligat a sortir de la meva zona de confort. Per primera vegada vaig haver de treballar amb eines de planificació, gestió i monitoratge que mai abans havia necessitat.">
           POPSPORT me ha obligado a salir de mi zona de confort. Por primera vez tuve que trabajar con herramientas de planificación, gestión y monitorización que nunca antes había necesitado.
         </div>
       <div class="x-tweet-media-grid count-3">
@@ -3058,7 +3068,7 @@ window.scrollTo(0, 0);
     </div>
 
     <!-- Indicador para hacer clic (abre el hilo completo en el mismo modal) -->
-    <button type="button" class="x-thread-toggle-btn" onclick="event.stopPropagation(); openThread('hilo4')">Mostrar hilo completo <span>→</span></button>
+    <button type="button" class="x-thread-toggle-btn i18n-html" onclick="event.stopPropagation(); openThread('hilo4')" data-es-html="Mostrar hilo completo &lt;span&gt;→&lt;/span&gt;" data-ca-html="Mostra el fil complet &lt;span&gt;→&lt;/span&gt;">Mostrar hilo completo <span>→</span></button>
   </div>
 
 </div> <!-- /x-timeline -->
@@ -3096,13 +3106,13 @@ window.scrollTo(0, 0);
         <!-- Vista de HILO COMPLETO: se muestra en el mismo modal, sustituyendo al perfil -->
         <div id="x-thread-view">
           <header class="x-thread-inline-header">
-            <button type="button" class="x-thread-back-inline" onclick="closeThreadView()" aria-label="Volver atrás">
+            <button type="button" class="x-thread-back-inline i18n-aria" onclick="closeThreadView()" aria-label="Volver atrás" data-aria-es="Volver atrás" data-aria-ca="Tornar enrere">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="19" y1="12" x2="5" y2="12"></line>
                 <polyline points="12 19 5 12 12 5"></polyline>
               </svg>
             </button>
-            <h2>Hilo</h2>
+            <h2 class="i18n" data-es="Hilo" data-ca="Fil">Hilo</h2>
           </header>
           <div id="x-thread-view-content" class="x-thread-inline-content"></div>
         </div>
@@ -3124,10 +3134,10 @@ window.scrollTo(0, 0);
     <!-- EDITA AQUÍ: foto de portada, icono y título/subtítulo del Proyecto 4 -->
     <div class="modal-cover g4">
       <img src="foto/barca4.jpg" alt="Portada Proyecto 4" class="modal-cover-img">
-      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar">✕</button>
       <div style="position: absolute; text-shadow: 0 1px 10px rgba(0,0,0,0.8); bottom: 15px; left: 20px; right: 20px; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
-        <span class="mono">📊Estrategia de redes sociales </span>
-        <h3 style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">
+        <span class="mono i18n" data-es="📊Estrategia de redes sociales " data-ca="📊Estratègia de xarxes socials ">📊Estrategia de redes sociales </span>
+        <h3 class="i18n" data-es="Proyecto académico desarrollado para el Barça Innovation Hub." data-ca="Projecte acadèmic desenvolupat per al Barça Innovation Hub." style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">
         Proyecto académico desarrollado para el Barça Innovation Hub.
         </h3>
       </div>
@@ -3252,20 +3262,20 @@ window.scrollTo(0, 0);
       </div>
 
       <!-- Explicación del proyecto, debajo de la presentación -->
-      <div class="cs-block"><span class="label">El proyecto</span><p>Proyecto académico desarrollado para el Barça Innovation Hub. Consistía en diseñar una estrategia completa de redes sociales para una entidad deportiva, definiendo objetivos, públicos, líneas de contenido, calendario editorial, campañas, métricas y sistema de evaluación.</p></div>
-      <div class="cs-block"><span class="label">El reto</span><p>El club tenía presencia en redes, pero no contaba con una estrategia que guiara su comunicación.El reto era construir un plan realista que ayudara a aumentar su visibilidad, fortalecer la comunidad y convertir las redes sociales en una herramienta útil para el crecimiento del club.</p></div>
-      <div class="cs-block"><span class="label">Mi papel</span>
-        <p>Me encargué de desarrollar toda la estrategia digital.</p>
+      <div class="cs-block"><span class="label i18n" data-es="El proyecto" data-ca="El projecte">El proyecto</span><p class="i18n" data-es="Proyecto académico desarrollado para el Barça Innovation Hub. Consistía en diseñar una estrategia completa de redes sociales para una entidad deportiva, definiendo objetivos, públicos, líneas de contenido, calendario editorial, campañas, métricas y sistema de evaluación." data-ca="Projecte acadèmic desenvolupat per al Barça Innovation Hub. Consistia a dissenyar una estratègia completa de xarxes socials per a una entitat esportiva, definint objectius, públics, línies de contingut, calendari editorial, campanyes, mètriques i sistema d'avaluació.">Proyecto académico desarrollado para el Barça Innovation Hub. Consistía en diseñar una estrategia completa de redes sociales para una entidad deportiva, definiendo objetivos, públicos, líneas de contenido, calendario editorial, campañas, métricas y sistema de evaluación.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="El reto" data-ca="El repte">El reto</span><p class="i18n" data-es="El club tenía presencia en redes, pero no contaba con una estrategia que guiara su comunicación.El reto era construir un plan realista que ayudara a aumentar su visibilidad, fortalecer la comunidad y convertir las redes sociales en una herramienta útil para el crecimiento del club." data-ca="El club tenia presència a les xarxes, però no comptava amb una estratègia que guiés la seva comunicació. El repte era construir un pla realista que ajudés a augmentar la seva visibilitat, enfortir la comunitat i convertir les xarxes socials en una eina útil per al creixement del club.">El club tenía presencia en redes, pero no contaba con una estrategia que guiara su comunicación.El reto era construir un plan realista que ayudara a aumentar su visibilidad, fortalecer la comunidad y convertir las redes sociales en una herramienta útil para el crecimiento del club.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Mi papel" data-ca="El meu paper">Mi papel</span>
+        <p class="i18n" data-es="Me encargué de desarrollar toda la estrategia digital." data-ca="Em vaig encarregar de desenvolupar tota l'estratègia digital.">Me encargué de desarrollar toda la estrategia digital.</p>
         <div class="role-chips">
-          <span class="role-chip">🔍 Investigación y análisis del club</span>
-          <span class="role-chip">📊 Definición de objetivos y KPIs</span>
-          <span class="role-chip">🎨 Diseño del plan de contenidos</span>
-          <span class="role-chip">🗓️ Calendario editorial</span>
-          <span class="role-chip">💡 Propuestas de campañas</span>
-          <span class="role-chip">📈 Sistema de medición de resultados</span>
+          <span class="role-chip i18n" data-es="🔍 Investigación y análisis del club" data-ca="🔍 Recerca i anàlisi del club">🔍 Investigación y análisis del club</span>
+          <span class="role-chip i18n" data-es="📊 Definición de objetivos y KPIs" data-ca="📊 Definició d'objectius i KPIs">📊 Definición de objetivos y KPIs</span>
+          <span class="role-chip i18n" data-es="🎨 Diseño del plan de contenidos" data-ca="🎨 Disseny del pla de continguts">🎨 Diseño del plan de contenidos</span>
+          <span class="role-chip i18n" data-es="🗓️ Calendario editorial" data-ca="🗓️ Calendari editorial">🗓️ Calendario editorial</span>
+          <span class="role-chip i18n" data-es="💡 Propuestas de campañas" data-ca="💡 Propostes de campanyes">💡 Propuestas de campañas</span>
+          <span class="role-chip i18n" data-es="📈 Sistema de medición de resultados" data-ca="📈 Sistema de mesurament de resultats">📈 Sistema de medición de resultados</span>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Herramientas</span>
+      <div class="cs-block"><span class="label i18n" data-es="Herramientas" data-ca="Eines">Herramientas</span>
         <div class="tools-stories">
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/Canva2.png" alt="Canva" loading="lazy"></div></div><span class="tool-story-name">Canva</span></div>
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/trello.jpg" alt="Trello" loading="lazy"></div></div><span class="tool-story-name">Trello</span></div>
@@ -3274,8 +3284,8 @@ window.scrollTo(0, 0);
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/instagram.jpg" alt="Instagram" loading="lazy"></div></div><span class="tool-story-name">Instagram</span></div>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Resultado</span><p>Aunque la estrategia no llegó a implementarse, el proyecto quedó completamente desarrollado y listo para ejecutarse.<br>Incluye una planificación mensual, propuestas de contenido, campañas, indicadores de éxito y un sistema para medir el impacto de la comunicación.</p></div>
-      <div class="cs-block"><span class="label">ESTE PROYECTO ME ENSEÑÓ...</span><p>Fue la primera vez que entendí que gestionar redes sociales no consiste únicamente en publicar contenido. Antes de crear un solo vídeo hay que analizar, definir objetivos, entender a la audiencia y construir una estrategia coherente. Este proyecto me enseñó a pensar antes de crear.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span><p class="i18n-html" data-es-html="Aunque la estrategia no llegó a implementarse, el proyecto quedó completamente desarrollado y listo para ejecutarse.&lt;br&gt;Incluye una planificación mensual, propuestas de contenido, campañas, indicadores de éxito y un sistema para medir el impacto de la comunicación." data-ca-html="Tot i que l'estratègia no es va arribar a implementar, el projecte va quedar completament desenvolupat i llest per executar-se.&lt;br&gt;Inclou una planificació mensual, propostes de contingut, campanyes, indicadors d'èxit i un sistema per mesurar l'impacte de la comunicació.">Aunque la estrategia no llegó a implementarse, el proyecto quedó completamente desarrollado y listo para ejecutarse.<br>Incluye una planificación mensual, propuestas de contenido, campañas, indicadores de éxito y un sistema para medir el impacto de la comunicación.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="ESTE PROYECTO ME ENSEÑÓ..." data-ca="AQUEST PROJECTE EM VA ENSENYAR...">ESTE PROYECTO ME ENSEÑÓ...</span><p class="i18n" data-es="Fue la primera vez que entendí que gestionar redes sociales no consiste únicamente en publicar contenido. Antes de crear un solo vídeo hay que analizar, definir objetivos, entender a la audiencia y construir una estrategia coherente. Este proyecto me enseñó a pensar antes de crear." data-ca="Va ser la primera vegada que vaig entendre que gestionar xarxes socials no consisteix únicament a publicar contingut. Abans de crear un sol vídeo cal analitzar, definir objectius, entendre l'audiència i construir una estratègia coherent. Aquest projecte em va ensenyar a pensar abans de crear.">Fue la primera vez que entendí que gestionar redes sociales no consiste únicamente en publicar contenido. Antes de crear un solo vídeo hay que analizar, definir objetivos, entender a la audiencia y construir una estrategia coherente. Este proyecto me enseñó a pensar antes de crear.</p></div>
     </div> <!-- /modal-body p4 -->
   </div> <!-- /modal p4 -->
 </div> <!-- /modal-overlay p4 -->
@@ -3286,53 +3296,53 @@ window.scrollTo(0, 0);
     <div class="modal-body">
       <!-- 1. PORTADA: degradado con los colores del logo + carátula integrada -->
       <div class="sp-hero">
-        <button class="modal-close" data-close aria-label="Cerrar" style="position:absolute; top:15px; right:15px;">✕</button>
+        <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar" style="position:absolute; top:15px; right:15px;">✕</button>
         <div class="sp-hero-art">
           <img src="https://i.scdn.co/image/ab67656300005f1f8d605920bba4d017932f9c70" alt="Havia de Passar">
         </div>
         <div class="sp-hero-info">
-          <span class="sp-hero-label">Pódcast</span>
+          <span class="sp-hero-label i18n" data-es="Pódcast" data-ca="Pòdcast">Pódcast</span>
           <h1 class="sp-hero-title">Havia de Passar</h1>
-          <div class="sp-hero-sub">Producción y realización</div>
+          <div class="sp-hero-sub i18n" data-es="Producción y realización" data-ca="Producció i realització">Producción y realización</div>
         </div>
       </div>
 
       <!-- 2. BOTÓN SEGUIR: lleva directamente a la página real del podcast en Spotify -->
       <div class="sp-action-row">
-        <a href="https://open.spotify.com/show/1UisKFHg9c5lQBd9rjsVhn?si=0e1f4bb27a3f4ef4" target="_blank" rel="noopener" class="sp-follow-btn">Seguir</a>
+        <a href="https://open.spotify.com/show/1UisKFHg9c5lQBd9rjsVhn?si=0e1f4bb27a3f4ef4" target="_blank" rel="noopener" class="sp-follow-btn i18n" data-es="Seguir" data-ca="Seguir">Seguir</a>
       </div>
 
       <!-- 3. DESCRIPCIÓN BREVE (3-4 líneas) -->
       <div class="cs-block" style="padding:18px 24px 0;">
-        <h2 style="font-size: 16px;">Información</h2>
-        <p>"Programa de infoentretenimiento enfocado a un público joven que repasa las novedades del panorama mediático con humor y defendiendo los valores socioculturales de la sociedad valenciana."</p>
+        <h2 class="i18n" data-es="Información" data-ca="Informació" style="font-size: 16px;">Información</h2>
+        <p class="i18n" data-es="&quot;Programa de infoentretenimiento enfocado a un público joven que repasa las novedades del panorama mediático con humor y defendiendo los valores socioculturales de la sociedad valenciana.&quot;" data-ca="&quot;Programa d'infoentreteniment enfocat a un públic jove que repassa les novetats del panorama mediàtic amb humor i defensant els valors socioculturals de la societat valenciana.&quot;">"Programa de infoentretenimiento enfocado a un público joven que repasa las novedades del panorama mediático con humor y defendiendo los valores socioculturales de la sociedad valenciana."</p>
       </div>
 
       <!-- 4. EPISODIOS: lista única con todos los episodios, navegable con scroll lateral -->
       <div class="sp-section-header sp-section-header-row">
-        <h2>Episodios</h2>
-        <select class="sp-sort-select" id="sp-sort-select" onchange="sp5SetSortOrder(this.value)" aria-label="Ordenar episodios">
-          <option value="desc">Más recientes primero</option>
-          <option value="asc">Menos recientes primero</option>
+        <h2 class="i18n" data-es="Episodios" data-ca="Episodis">Episodios</h2>
+        <select class="sp-sort-select i18n-aria" id="sp-sort-select" onchange="sp5SetSortOrder(this.value)" aria-label="Ordenar episodios" data-aria-es="Ordenar episodios" data-aria-ca="Ordenar episodis">
+          <option value="desc" class="i18n" data-es="Más recientes primero" data-ca="Més recents primer">Más recientes primero</option>
+          <option value="asc" class="i18n" data-es="Menos recientes primero" data-ca="Menys recents primer">Menos recientes primero</option>
         </select>
       </div>
       <div class="sp-episodes-list" id="sp-episodes-list"><!-- generado por JS desde spEpisodesData --></div>
 
       <!-- 5. INFORMACIÓN DETALLADA DEL PROYECTO -->
-      <div class="cs-block" style="padding:22px 24px 0;"><span class="label">El proyecto</span><p>Havia de Passar fue un podcast creado junto a tres compañeros durante la universidad con una idea muy sencilla: experimentar con uno de los medios de comunicación más clásicos y descubrir cómo era estar al otro lado del micrófono.<br>Queríamos crear un programa que nosotros mismos disfrutaríamos escuchando. Un espacio donde conversar, improvisar, hacer humor y, sobre todo, pasarlo bien.</p></div>
-      <div class="cs-block" style="padding:0 24px;"><span class="label">El reto</span><p>El reto era conseguir que una conversación entre amigos se convirtiera en un programa capaz de entretener. Sin un gran presupuesto, sin un estudio profesional y sin intentar parecernos a la radio tradicional. Solo cuatro personas con ganas de experimentar, reírse y crear un formato con personalidad propia.</p></div>
-      <div class="cs-block" style="padding:0 24px;"><span class="label">Mi papel</span>
-        <p>Aunque fue un proyecto completamente colaborativo, asumí gran parte de la producción y la parte técnica del programa.</p>
+      <div class="cs-block" style="padding:22px 24px 0;"><span class="label i18n" data-es="El proyecto" data-ca="El projecte">El proyecto</span><p class="i18n-html" data-es-html="Havia de Passar fue un podcast creado junto a tres compañeros durante la universidad con una idea muy sencilla: experimentar con uno de los medios de comunicación más clásicos y descubrir cómo era estar al otro lado del micrófono.&lt;br&gt;Queríamos crear un programa que nosotros mismos disfrutaríamos escuchando. Un espacio donde conversar, improvisar, hacer humor y, sobre todo, pasarlo bien." data-ca-html="Havia de Passar va ser un podcast creat juntament amb tres companys durant la universitat amb una idea molt senzilla: experimentar amb un dels mitjans de comunicació més clàssics i descobrir com era estar a l'altra banda del micròfon.&lt;br&gt;Volíem crear un programa que nosaltres mateixos gaudiríem escoltant. Un espai on conversar, improvisar, fer humor i, sobretot, passar-ho bé.">Havia de Passar fue un podcast creado junto a tres compañeros durante la universidad con una idea muy sencilla: experimentar con uno de los medios de comunicación más clásicos y descubrir cómo era estar al otro lado del micrófono.<br>Queríamos crear un programa que nosotros mismos disfrutaríamos escuchando. Un espacio donde conversar, improvisar, hacer humor y, sobre todo, pasarlo bien.</p></div>
+      <div class="cs-block" style="padding:0 24px;"><span class="label i18n" data-es="El reto" data-ca="El repte">El reto</span><p class="i18n" data-es="El reto era conseguir que una conversación entre amigos se convirtiera en un programa capaz de entretener. Sin un gran presupuesto, sin un estudio profesional y sin intentar parecernos a la radio tradicional. Solo cuatro personas con ganas de experimentar, reírse y crear un formato con personalidad propia." data-ca="El repte era aconseguir que una conversa entre amics es convertís en un programa capaç d'entretenir. Sense un gran pressupost, sense un estudi professional i sense intentar assemblar-nos a la ràdio tradicional. Només quatre persones amb ganes d'experimentar, riure i crear un format amb personalitat pròpia.">El reto era conseguir que una conversación entre amigos se convirtiera en un programa capaz de entretener. Sin un gran presupuesto, sin un estudio profesional y sin intentar parecernos a la radio tradicional. Solo cuatro personas con ganas de experimentar, reírse y crear un formato con personalidad propia.</p></div>
+      <div class="cs-block" style="padding:0 24px;"><span class="label i18n" data-es="Mi papel" data-ca="El meu paper">Mi papel</span>
+        <p class="i18n" data-es="Aunque fue un proyecto completamente colaborativo, asumí gran parte de la producción y la parte técnica del programa." data-ca="Tot i que va ser un projecte completament col·laboratiu, vaig assumir gran part de la producció i la part tècnica del programa.">Aunque fue un proyecto completamente colaborativo, asumí gran parte de la producción y la parte técnica del programa.</p>
         <div class="role-chips">
-          <span class="role-chip">💡 Desarrollo de la idea y la estructura del formato.</span>
-          <span class="role-chip">🎙️ Conducción y presentación de los episodios</span>
-          <span class="role-chip">🎛️ Control técnico durante las grabaciones</span>
-          <span class="role-chip">✂️ Edición y montaje de audio</span>
-          <span class="role-chip">🎨 Diseño de la identidad visual</span>
-          <span class="role-chip">🚀 Publicación y distribución en Spotify, iVoox y RadioVox UJI</span>
+          <span class="role-chip i18n" data-es="💡 Desarrollo de la idea y la estructura del formato." data-ca="💡 Desenvolupament de la idea i l'estructura del format.">💡 Desarrollo de la idea y la estructura del formato.</span>
+          <span class="role-chip i18n" data-es="🎙️ Conducción y presentación de los episodios" data-ca="🎙️ Conducció i presentació dels episodis">🎙️ Conducción y presentación de los episodios</span>
+          <span class="role-chip i18n" data-es="🎛️ Control técnico durante las grabaciones" data-ca="🎛️ Control tècnic durant els enregistraments">🎛️ Control técnico durante las grabaciones</span>
+          <span class="role-chip i18n" data-es="✂️ Edición y montaje de audio" data-ca="✂️ Edició i muntatge d'àudio">✂️ Edición y montaje de audio</span>
+          <span class="role-chip i18n" data-es="🎨 Diseño de la identidad visual" data-ca="🎨 Disseny de la identitat visual">🎨 Diseño de la identidad visual</span>
+          <span class="role-chip i18n" data-es="🚀 Publicación y distribución en Spotify, iVoox y RadioVox UJI" data-ca="🚀 Publicació i distribució a Spotify, iVoox i RadioVox UJI">🚀 Publicación y distribución en Spotify, iVoox y RadioVox UJI</span>
         </div>
       </div>
-      <div class="cs-block" style="padding:0 24px;"><span class="label">Herramientas</span>
+      <div class="cs-block" style="padding:0 24px;"><span class="label i18n" data-es="Herramientas" data-ca="Eines">Herramientas</span>
         <div class="tools-stories">
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/Canva2.png" alt="Canva" loading="lazy"></div></div><span class="tool-story-name">Canva</span></div>
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/audacity.jpg" alt="Audacity" loading="lazy"></div></div><span class="tool-story-name">Audacity</span></div>
@@ -3342,8 +3352,8 @@ window.scrollTo(0, 0);
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/adobepod.png" alt="Instagram" loading="lazy"></div></div><span class="tool-story-name">Adobe Podcast</span></div>
         </div>
       </div>
-      <div class="cs-block" style="padding:0 24px;"><span class="label">Resultado</span><p>El proyecto dio lugar a un podcast distribuido en varias plataformas donde pudimos experimentar con todas las fases de producción de un formato sonoro: desde la idea inicial hasta su publicación.<br>Más allá del resultado, fue una oportunidad para descubrir cómo transformar una simple conversación entre amigos en un producto audiovisual con identidad propia.</p></div>
-      <div class="cs-block" style="padding:0 24px 8px;"><span class="label">Este proyecto me enseño...</span><p>Que comunicar también consiste en crear espacios donde la gente quiera quedarse. Aprendí a combinar creatividad, técnica y organización para que una conversación fluyera de forma natural y resultara entretenida. Y, sobre todo, confirmé que disfruto tanto construyendo el contenido como haciendo que todo funcione detrás de los micrófonos.</p></div>
+      <div class="cs-block" style="padding:0 24px;"><span class="label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span><p class="i18n-html" data-es-html="El proyecto dio lugar a un podcast distribuido en varias plataformas donde pudimos experimentar con todas las fases de producción de un formato sonoro: desde la idea inicial hasta su publicación.&lt;br&gt;Más allá del resultado, fue una oportunidad para descubrir cómo transformar una simple conversación entre amigos en un producto audiovisual con identidad propia." data-ca-html="El projecte va donar lloc a un podcast distribuït en diverses plataformes on vam poder experimentar amb totes les fases de producció d'un format sonor: des de la idea inicial fins a la seva publicació.&lt;br&gt;Més enllà del resultat, va ser una oportunitat per descobrir com transformar una simple conversa entre amics en un producte audiovisual amb identitat pròpia.">El proyecto dio lugar a un podcast distribuido en varias plataformas donde pudimos experimentar con todas las fases de producción de un formato sonoro: desde la idea inicial hasta su publicación.<br>Más allá del resultado, fue una oportunidad para descubrir cómo transformar una simple conversación entre amigos en un producto audiovisual con identidad propia.</p></div>
+      <div class="cs-block" style="padding:0 24px 8px;"><span class="label i18n" data-es="Este proyecto me enseño..." data-ca="Aquest projecte em va ensenyar...">Este proyecto me enseño...</span><p class="i18n" data-es="Que comunicar también consiste en crear espacios donde la gente quiera quedarse. Aprendí a combinar creatividad, técnica y organización para que una conversación fluyera de forma natural y resultara entretenida. Y, sobre todo, confirmé que disfruto tanto construyendo el contenido como haciendo que todo funcione detrás de los micrófonos." data-ca="Que comunicar també consisteix a crear espais on la gent vulgui quedar-se. Vaig aprendre a combinar creativitat, tècnica i organització perquè una conversa fluís de forma natural i resultés entretinguda. I, sobretot, vaig confirmar que gaudeixo tant construint el contingut com fent que tot funcioni darrere dels micròfons.">Que comunicar también consiste en crear espacios donde la gente quiera quedarse. Aprendí a combinar creatividad, técnica y organización para que una conversación fluyera de forma natural y resultara entretenida. Y, sobre todo, confirmé que disfruto tanto construyendo el contenido como haciendo que todo funcione detrás de los micrófonos.</p></div>
 
     </div> <!-- /modal-body p5 -->
 
@@ -3351,7 +3361,7 @@ window.scrollTo(0, 0);
          Con position:sticky se desplaza junto con la navegación y se mantiene siempre abajo. -->
     <div class="sp-player-bar">
       <div class="sp-player-bar-inner">
-        <div class="sp-player-placeholder" id="sp-player-placeholder">🎧 Selecciona un episodio para reproducirlo</div>
+        <div class="sp-player-placeholder i18n" id="sp-player-placeholder" data-es="🎧 Selecciona un episodio para reproducirlo" data-ca="🎧 Selecciona un episodi per reproduir-lo">🎧 Selecciona un episodio para reproducirlo</div>
         <iframe id="sp-player-iframe" style="display:none;" src="" width="100%" height="80" frameborder="0"
           allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
       </div>
@@ -3367,38 +3377,38 @@ window.scrollTo(0, 0);
          una <img class="modal-cover-img"> igual que en los otros proyectos. -->
     <div class="modal-cover g6">
       <img src="foto/pw.png" alt="Portada Proyecto 6" class="modal-cover-img">
-      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <button class="modal-close i18n-aria" data-close aria-label="Cerrar" data-aria-es="Cerrar" data-aria-ca="Tancar">✕</button>
       <div style="position: absolute; text-shadow: 0 1px 10px rgba(0,0,0,0.8); bottom: 15px; left: 20px; right: 20px; z-index: 10; display: flex; flex-direction: column; align-items: flex-start; gap: 4px;">
-        <span class="mono">💻 Making of</span>
-        <h3 style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">
+        <span class="mono i18n" data-es="💻 Making of" data-ca="💻 Making of">💻 Making of</span>
+        <h3 class="i18n" data-es="Cómo diseñé y construí este mismo portfolio, de principio a fin." data-ca="Com vaig dissenyar i construir aquest mateix portfoli, de principi a fi." style="color: #f3f3f3 !important; font-family: Georgia, serif !important; font-size: 0.8rem; font-style: italic !important; margin: 5; font-weight: 500; text-shadow: 0 1px 3px rgba(0,0,0,0.8); text-align: left;">
           Cómo diseñé y construí este mismo portfolio, de principio a fin.
         </h3>
       </div>
     </div>
 
     <div class="modal-body">
-      <div class="cs-block"><span class="label">El proyecto</span><p>Este portfolio nació con una pregunta muy sencilla: ¿cómo puedo contar quién soy sin recurrir a un currículum tradicional?<br>No quería una página donde simplemente aparecieran mis trabajos. Quería construir una experiencia que hablara de mí incluso antes de que alguien empezara a leer.<br>Cada decisión, desde el diseño hasta la forma de presentar los proyectos, buscaba responder a esa idea.</p></div>
-      <div class="cs-block"><span class="label">El reto</span><p>Nunca había diseñado una página web.<br>Podría haber utilizado una plantilla o haber hecho un portfolio sencillo, pero sentía que no me representaba. El verdadero reto era aprender algo completamente nuevo para crear un espacio que reflejara mi personalidad y mi forma de entender la comunicación.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="El proyecto" data-ca="El projecte">El proyecto</span><p class="i18n-html" data-es-html="Este portfolio nació con una pregunta muy sencilla: ¿cómo puedo contar quién soy sin recurrir a un currículum tradicional?&lt;br&gt;No quería una página donde simplemente aparecieran mis trabajos. Quería construir una experiencia que hablara de mí incluso antes de que alguien empezara a leer.&lt;br&gt;Cada decisión, desde el diseño hasta la forma de presentar los proyectos, buscaba responder a esa idea." data-ca-html="Aquest portfoli va néixer amb una pregunta molt senzilla: com puc explicar qui sóc sense recórrer a un currículum tradicional?&lt;br&gt;No volia una pàgina on simplement apareguessin les meves feines. Volia construir una experiència que parlés de mi fins i tot abans que algú comencés a llegir.&lt;br&gt;Cada decisió, des del disseny fins a la forma de presentar els projectes, buscava respondre a aquesta idea.">Este portfolio nació con una pregunta muy sencilla: ¿cómo puedo contar quién soy sin recurrir a un currículum tradicional?<br>No quería una página donde simplemente aparecieran mis trabajos. Quería construir una experiencia que hablara de mí incluso antes de que alguien empezara a leer.<br>Cada decisión, desde el diseño hasta la forma de presentar los proyectos, buscaba responder a esa idea.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="El reto" data-ca="El repte">El reto</span><p class="i18n-html" data-es-html="Nunca había diseñado una página web.&lt;br&gt;Podría haber utilizado una plantilla o haber hecho un portfolio sencillo, pero sentía que no me representaba. El verdadero reto era aprender algo completamente nuevo para crear un espacio que reflejara mi personalidad y mi forma de entender la comunicación." data-ca-html="Mai havia dissenyat una pàgina web.&lt;br&gt;Podria haver utilitzat una plantilla o haver fet un portfoli senzill, però sentia que no em representava. El veritable repte era aprendre alguna cosa completament nova per crear un espai que reflectís la meva personalitat i la meva manera d'entendre la comunicació.">Nunca había diseñado una página web.<br>Podría haber utilizado una plantilla o haber hecho un portfolio sencillo, pero sentía que no me representaba. El verdadero reto era aprender algo completamente nuevo para crear un espacio que reflejara mi personalidad y mi forma de entender la comunicación.</p></div>
       <div class="cs-block">
-        <span class="label">Proceso</span>
+        <span class="label i18n" data-es="Proceso" data-ca="Procés">Proceso</span>
         <div class="proc-timeline">
-          <div class="proc-track" id="procTrack" role="tablist" aria-label="Fases del proceso">
+          <div class="proc-track i18n-aria" id="procTrack" role="tablist" aria-label="Fases del proceso" data-aria-es="Fases del proceso" data-aria-ca="Fases del procés">
             <div class="proc-progress" id="procProgress"></div>
             <!-- Los 5 pasos se generan también por JS (ver PROC_STEPS), este markup es el estado inicial -->
             <button class="proc-step active" data-index="0" role="tab" aria-selected="true" aria-controls="procSlide">
-              <span class="proc-dot">💡</span><span class="proc-step-label">Idea</span>
+              <span class="proc-dot">💡</span><span class="proc-step-label i18n" data-es="Idea" data-ca="Idea">Idea</span>
             </button>
             <button class="proc-step" data-index="1" role="tab" aria-selected="false" aria-controls="procSlide">
-              <span class="proc-dot">🎨</span><span class="proc-step-label">Diseño</span>
+              <span class="proc-dot">🎨</span><span class="proc-step-label i18n" data-es="Diseño" data-ca="Disseny">Diseño</span>
             </button>
             <button class="proc-step" data-index="2" role="tab" aria-selected="false" aria-controls="procSlide">
-              <span class="proc-dot">💻</span><span class="proc-step-label">Desarrollo</span>
+              <span class="proc-dot">💻</span><span class="proc-step-label i18n" data-es="Desarrollo" data-ca="Desenvolupament">Desarrollo</span>
             </button>
             <button class="proc-step" data-index="3" role="tab" aria-selected="false" aria-controls="procSlide">
-              <span class="proc-dot">🧪</span><span class="proc-step-label">Testing</span>
+              <span class="proc-dot">🧪</span><span class="proc-step-label i18n" data-es="Testing" data-ca="Testing">Testing</span>
             </button>
             <button class="proc-step" data-index="4" role="tab" aria-selected="false" aria-controls="procSlide">
-              <span class="proc-dot">🚀</span><span class="proc-step-label">Resultado</span>
+              <span class="proc-dot">🚀</span><span class="proc-step-label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span>
             </button>
           </div>
         </div>
@@ -3414,23 +3424,23 @@ window.scrollTo(0, 0);
   </div>
 </div>
         <div class="proc-nav">
-          <button class="proc-btn" id="procPrev" aria-label="Paso anterior">←</button>
+          <button class="proc-btn i18n-aria" id="procPrev" aria-label="Paso anterior" data-aria-es="Paso anterior" data-aria-ca="Pas anterior">←</button>
           <span class="proc-counter" id="procCounter">1 / 5</span>
-          <button class="proc-btn" id="procNext" aria-label="Paso siguiente">→</button>
+          <button class="proc-btn i18n-aria" id="procNext" aria-label="Paso siguiente" data-aria-es="Paso siguiente" data-aria-ca="Pas següent">→</button>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Mi papel</span>
-        <p>He desarollado todo el proyecto de principio a fin (con el soporte de alguna IA).</p>
+      <div class="cs-block"><span class="label i18n" data-es="Mi papel" data-ca="El meu paper">Mi papel</span>
+        <p class="i18n" data-es="He desarollado todo el proyecto de principio a fin (con el soporte de alguna IA)." data-ca="He desenvolupat tot el projecte de principi a fi (amb el suport d'alguna IA).">He desarollado todo el proyecto de principio a fin (con el soporte de alguna IA).</p>
         <div class="role-chips">
-          <span class="role-chip">🧠 Conceptualización de la experiencia ·</span>
-          <span class="role-chip">🎨 Dirección creativa integral</span>
-          <span class="role-chip">📐 Diseño de la estructura del portfolio</span>
-          <span class="role-chip">🖼️ Diseño de la interfaz</span>
-          <span class="role-chip">💻 Programación en HTML, CSS y JS con apoyo de IA</span>
-          <span class="role-chip">📱 Adaptación responsive</span>
+          <span class="role-chip i18n" data-es="🧠 Conceptualización de la experiencia ·" data-ca="🧠 Conceptualització de l'experiència ·">🧠 Conceptualización de la experiencia ·</span>
+          <span class="role-chip i18n" data-es="🎨 Dirección creativa integral" data-ca="🎨 Direcció creativa integral">🎨 Dirección creativa integral</span>
+          <span class="role-chip i18n" data-es="📐 Diseño de la estructura del portfolio" data-ca="📐 Disseny de l'estructura del portfoli">📐 Diseño de la estructura del portfolio</span>
+          <span class="role-chip i18n" data-es="🖼️ Diseño de la interfaz" data-ca="🖼️ Disseny de la interfície">🖼️ Diseño de la interfaz</span>
+          <span class="role-chip i18n" data-es="💻 Programación en HTML, CSS y JS con apoyo de IA" data-ca="💻 Programació en HTML, CSS i JS amb suport d'IA">💻 Programación en HTML, CSS y JS con apoyo de IA</span>
+          <span class="role-chip i18n" data-es="📱 Adaptación responsive" data-ca="📱 Adaptació responsive">📱 Adaptación responsive</span>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Herramientas</span>
+      <div class="cs-block"><span class="label i18n" data-es="Herramientas" data-ca="Eines">Herramientas</span>
         <div class="tools-stories">
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/claude.png" alt="Canva" loading="lazy"></div></div><span class="tool-story-name">Claude</span></div>
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/vscode.png" alt="Audacity" loading="lazy"></div></div><span class="tool-story-name">VS Code</span></div>
@@ -3440,8 +3450,8 @@ window.scrollTo(0, 0);
           <div class="tool-story"><div class="tool-story-ring"><div class="tool-story-avatar"><img src="foto/gemini.jpg" alt="Gemini" loading="lazy"></div></div><span class="tool-story-name">Gemini</span></div>
         </div>
       </div>
-      <div class="cs-block"><span class="label">Resultado</span><p>Más que una página web, este portfolio se ha convertido en un proyecto que resume mi forma de trabajar. Si no se hacer algo, lo intento hasta que aprendo.</p></div>
-      <div class="cs-block" style="padding-bottom:8px;"><span class="label">Este proyecto me enseñó...</span><p>Durante mucho tiempo pensé que hacer una página web estaba fuera de mis conocimientos. Este proyecto me recordó que muchas veces el límite no está en lo que sabes hacer, sino en las ganas que tienes de aprender. No será una web perfecta, pero sí es probablemente el proyecto que mejor me representa.</p></div>
+      <div class="cs-block"><span class="label i18n" data-es="Resultado" data-ca="Resultat">Resultado</span><p class="i18n" data-es="Más que una página web, este portfolio se ha convertido en un proyecto que resume mi forma de trabajar. Si no se hacer algo, lo intento hasta que aprendo." data-ca="Més que una pàgina web, aquest portfoli s'ha convertit en un projecte que resumeix la meva forma de treballar. Si no sé fer alguna cosa, ho intento fins que ho aprenc.">Más que una página web, este portfolio se ha convertido en un proyecto que resume mi forma de trabajar. Si no se hacer algo, lo intento hasta que aprendo.</p></div>
+      <div class="cs-block" style="padding-bottom:8px;"><span class="label i18n" data-es="Este proyecto me enseñó..." data-ca="Aquest projecte em va ensenyar...">Este proyecto me enseñó...</span><p class="i18n" data-es="Durante mucho tiempo pensé que hacer una página web estaba fuera de mis conocimientos. Este proyecto me recordó que muchas veces el límite no está en lo que sabes hacer, sino en las ganas que tienes de aprender. No será una web perfecta, pero sí es probablemente el proyecto que mejor me representa." data-ca="Durant molt de temps vaig pensar que fer una pàgina web estava fora dels meus coneixements. Aquest projecte em va recordar que moltes vegades el límit no és en allò que saps fer, sinó en les ganes que tens d'aprendre. No serà una web perfecta, però sí que és probablement el projecte que millor em representa.">Durante mucho tiempo pensé que hacer una página web estaba fuera de mis conocimientos. Este proyecto me recordó que muchas veces el límite no está en lo que sabes hacer, sino en las ganas que tienes de aprender. No será una web perfecta, pero sí es probablemente el proyecto que mejor me representa.</p></div>
     </div> <!-- /modal-body p6 -->
   </div> <!-- /modal p6 -->
 </div> <!-- /modal-overlay p6 -->
@@ -3470,49 +3480,50 @@ window.scrollTo(0, 0);
 const grads = ['g1','g2','g3','g4'];
 
 const intro = [
-{icon:'👋', tag:'PRESENTACIÓN', title:'Nunca tuve muy claro a qué dedicarme…', text:'…así que decidí probarlo todo: música, deporte, baile, teatro.'},
-{icon:'🎓', tag:'PRESENTACIÓN', title:'Un día decidí estudiar Comunicación Audiovisual', text:'Aprendí a grabar, editar y hasta hice un podcast con compañeros.'},
-{icon:'🤝', tag:'PRESENTACIÓN', title:'Lo que más me gusta de este sector', text:'Trabajar en equipo y bajo presión para conseguir un mismo objetivo: entretener.'},
-{icon:'📺', tag:'PRESENTACIÓN', title:'Entré en la televisión nacional', text:'Redacción, guion, sonido, ingesta y edición de vídeo en programas de entretenimiento.'},
-{icon:'📱', tag:'PRESENTACIÓN', title:'En paralelo, di el salto a redes sociales', text:'Gestioné y edité contenido para proyectos deportivos.'},
-{icon:'🧭', tag:'PRESENTACIÓN', title:'Descubrir qué quería hacer no fue elegir un camino', text:'Fue recorrerlos todos. Plató, campo o edición: siempre se trata de contar historias.'},
-{icon:'💬', tag:'PRESENTACIÓN', title:'Y ahora que ya sabes la mía…', text:'¿qué te parece si empezamos a contar la tuya?'}
+{icon:'👋', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Nunca tuve muy claro a qué dedicarme…', title_ca:'Mai vaig tenir gaire clar a què dedicar-me…', text:'…así que decidí probarlo todo: música, deporte, baile, teatro.', text_ca:'…així que vaig decidir provar-ho tot: música, esport, ball, teatre.'},
+{icon:'🎓', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Un día decidí estudiar Comunicación Audiovisual', title_ca:'Un dia vaig decidir estudiar Comunicació Audiovisual', text:'Aprendí a grabar, editar y hasta hice un podcast con compañeros.', text_ca:'Vaig aprendre a gravar, editar i fins i tot vaig fer un podcast amb companys.'},
+{icon:'🤝', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Lo que más me gusta de este sector', title_ca:'El que més m\'agrada d\'aquest sector', text:'Trabajar en equipo y bajo presión para conseguir un mismo objetivo: entretener.', text_ca:'Treballar en equip i sota pressió per aconseguir un mateix objectiu: entretenir.'},
+{icon:'📺', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Entré en la televisión nacional', title_ca:'Vaig entrar a la televisió nacional', text:'Redacción, guion, sonido, ingesta y edición de vídeo en programas de entretenimiento.', text_ca:'Redacció, guió, so, ingesta i edició de vídeo en programes d\'entreteniment.'},
+{icon:'📱', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'En paralelo, di el salto a redes sociales', title_ca:'En paral·lel, vaig fer el salt a les xarxes socials', text:'Gestioné y edité contenido para proyectos deportivos.', text_ca:'Vaig gestionar i editar contingut per a projectes esportius.'},
+{icon:'🧭', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Descubrir qué quería hacer no fue elegir un camino', title_ca:'Descobrir què volia fer no va ser triar un camí', text:'Fue recorrerlos todos. Plató, campo o edición: siempre se trata de contar historias.', text_ca:'Va ser recórrer-los tots. Plató, camp o edició: sempre es tracta d\'explicar històries.'},
+{icon:'💬', tag:'PRESENTACIÓN', tag_ca:'PRESENTACIÓ', title:'Y ahora que ya sabes la mía…', title_ca:'I ara que ja saps la meva…', text:'¿qué te parece si empezamos a contar la tuya?', text_ca:'què et sembla si comencem a explicar la teva?'}
 ];
 const timeline = [
-  {icon:'🎓', tag:'2018', title:'Comunicación Audiovisual', role:'Universitat Jaume I', text:'Aquí empezó todo. Descubrí que toda emoción nace con una buena idea.', img:'foto/cav.jpg'},
-  {icon:'📻 ', tag:'2021', title:'Cadena SER', role:'Redactora y locutora', text:'Me enamoré de la comunicación. Aprendí que comunicar es mucho más que informar; es conectar con quien está al otro lado.', img:'foto/ser.jpg'},
-  {icon:'📺 ', tag:'2023', title:'Zona Franca', role:'Redacción', text:'Aprendí que fracasar también forma parte del camino. Esta profesión también consiste en adaptarse, reinventarse y seguir adelante.', img:'foto/zf.png'},
-  {icon:'🎙️', tag:'2023', title:'Operación Triunfo', role:'Sonido', text:'Las ganas de aprender también son un talento. Entendí que escuchar, preguntar y confiar en el equipo también es una forma de sumar.', img:'foto/otsi.jpg'},
-  {icon:'🎬', tag:'2024', title:'Tu Cara Me Suena', role:'Edición', text:'Una historia también se escribe en la sala de edición. Entendí cómo el ritmo, el montaje y los pequeños detalles pueden cambiarlo todo.', img:'foto/tcms.jpg'},
-  {icon:'🏉 ', tag:'2024', title:'Rugby Femení Poblenou', role:'Redes sociales', text:'Por fin entendí cuál era mi lugar. A pie de campo, contando historias que merecen ser recordadas.', img:'foto/rugby.jpg'},
-  {icon:'🎚️', tag:'2026', title:'Tu Cara me Suena', role:'Ingesta y Posproducción', text:'Descubrí que detrás de cada programa hay un enorme trabajo. Entender los flujos de trabajo me dió una visión mucho más completa de cómo se construye un contenido.', img:'foto/ingesta.jpg'},
-  {icon:'📱', tag:'2026', title:'Máster en Redes Sociales', role:'UOC', text:'Decidí apostar por ello. Me especialicé en Redes Sociales para convertir esa pasión en mi profesión.', img:'foto/estabi.jpg'}
+  {icon:'🎓', tag:'2018', title:'Comunicación Audiovisual', title_ca:'Comunicació Audiovisual', role:'Universitat Jaume I', role_ca:'Universitat Jaume I', text:'Aquí empezó todo. Descubrí que toda emoción nace con una buena idea.', text_ca:'Aquí va començar tot. Vaig descobrir que tota emoció neix amb una bona idea.', img:'foto/cav.jpg'},
+  {icon:'📻 ', tag:'2021', title:'Cadena SER', title_ca:'Cadena SER', role:'Redactora y locutora', role_ca:'Redactora i locutora', text:'Me enamoré de la comunicación. Aprendí que comunicar es mucho más que informar; es conectar con quien está al otro lado.', text_ca:'Em vaig enamorar de la comunicació. Vaig aprendre que comunicar és molt més que informar; és connectar amb qui és a l\'altra banda.', img:'foto/ser.jpg'},
+  {icon:'📺 ', tag:'2023', title:'Zona Franca', title_ca:'Zona Franca', role:'Redacción', role_ca:'Redacció', text:'Aprendí que fracasar también forma parte del camino. Esta profesión también consiste en adaptarse, reinventarse y seguir adelante.', text_ca:'Vaig aprendre que fracassar també forma part del camí. Aquesta professió també consisteix a adaptar-se, reinventar-se i seguir endavant.', img:'foto/zf.png'},
+  {icon:'🎙️', tag:'2023', title:'Operación Triunfo', title_ca:'Operació Triomf', role:'Sonido', role_ca:'So', text:'Las ganas de aprender también son un talento. Entendí que escuchar, preguntar y confiar en el equipo también es una forma de sumar.', text_ca:'Les ganes d\'aprendre també són un talent. Vaig entendre que escoltar, preguntar i confiar en l\'equip també és una manera de sumar.', img:'foto/otsi.jpg'},
+  {icon:'🎬', tag:'2024', title:'Tu Cara Me Suena', title_ca:'Tu Cara Me Suena', role:'Edición', role_ca:'Edició', text:'Una historia también se escribe en la sala de edición. Entendí cómo el ritmo, el montaje y los pequeños detalles pueden cambiarlo todo.', text_ca:'Una història també s\'escriu a la sala d\'edició. Vaig entendre com el ritme, el muntatge i els petits detalls poden canviar-ho tot.', img:'foto/tcms.jpg'},
+  {icon:'🏉 ', tag:'2024', title:'Rugby Femení Poblenou', title_ca:'Rugby Femení Poblenou', role:'Redes sociales', role_ca:'Xarxes socials', text:'Por fin entendí cuál era mi lugar. A pie de campo, contando historias que merecen ser recordadas.', text_ca:'Per fi vaig entendre quin era el meu lloc. A peu de camp, explicant històries que mereixen ser recordades.', img:'foto/rugby.jpg'},
+  {icon:'🎚️', tag:'2026', title:'Tu Cara me Suena', title_ca:'Tu Cara me Suena', role:'Ingesta y Posproducción', role_ca:'Ingesta i Postproducció', text:'Descubrí que detrás de cada programa hay un enorme trabajo. Entender los flujos de trabajo me dió una visión mucho más completa de cómo se construye un contenido.', text_ca:'Vaig descobrir que darrere de cada programa hi ha una feina enorme. Entendre els fluxos de treball em va donar una visió molt més completa de com es construeix un contingut.', img:'foto/ingesta.jpg'},
+  {icon:'📱', tag:'2026', title:'Máster en Redes Sociales', title_ca:'Màster en Xarxes Socials', role:'UOC', role_ca:'UOC', text:'Decidí apostar por ello. Me especialicé en Redes Sociales para convertir esa pasión en mi profesión.', text_ca:'Vaig decidir apostar-hi. Em vaig especialitzar en Xarxes Socials per convertir aquesta passió en la meva professió.', img:'foto/estabi.jpg'}
 ];
 
 const trabajar = [
-  {icon:'🤝 ', tag:'', title:'Trabajo en equipo', text:'Creo que los mejores proyectos salen cuando la gente disfruta trabajando junta. Intento crear ese ambiente desde el primer día.', img:'cv/equipo.jpg'},
-  {icon:'🚀 ', tag:'', title:'Aprendo rápido.', text:'Si no se algo, busco, pregunto y me esfuerzo por aprender. Simpre dispuesta a escuchar y preguntar a mis compañeros.', img:'cv/aprender.jpg'},
-  {icon:'💡', tag:'', title:'Siempre estoy pensando ideas.', text:'Me cuesta consumir contenido sin preguntarme cómo está hecho o cómo podría contarse de otra manera.', img:'cv/idea.jpg'},
-  {icon:'🎬 ', tag:'', title:'Me implico', text:'No me gusta hacer "mi parte". Me gusta entender el proyecto entero para aportar donde haga falta.', img:'cv/implico.jpg'}
+  {icon:'🤝 ', tag:'', title:'Trabajo en equipo', title_ca:'Treball en equip', text:'Creo que los mejores proyectos salen cuando la gente disfruta trabajando junta. Intento crear ese ambiente desde el primer día.', text_ca:'Crec que els millors projectes surten quan la gent gaudeix treballant junta. Intento crear aquest ambient des del primer dia.', img:'cv/equipo.jpg'},
+  {icon:'🚀 ', tag:'', title:'Aprendo rápido.', title_ca:'Aprenc ràpid.', text:'Si no se algo, busco, pregunto y me esfuerzo por aprender. Simpre dispuesta a escuchar y preguntar a mis compañeros.', text_ca:'Si no sé una cosa, busco, pregunto i m\'esforço per aprendre. Sempre disposada a escoltar i preguntar als meus companys.', img:'cv/aprender.jpg'},
+  {icon:'💡', tag:'', title:'Siempre estoy pensando ideas.', title_ca:'Sempre estic pensant idees.', text:'Me cuesta consumir contenido sin preguntarme cómo está hecho o cómo podría contarse de otra manera.', text_ca:'Em costa consumir contingut sense preguntar-me com està fet o com es podria explicar d\'una altra manera.', img:'cv/idea.jpg'},
+  {icon:'🎬 ', tag:'', title:'Me implico', title_ca:'M\'implico', text:'No me gusta hacer "mi parte". Me gusta entender el proyecto entero para aportar donde haga falta.', text_ca:'No m\'agrada fer "la meva part". M\'agrada entendre el projecte sencer per aportar allà on calgui.', img:'cv/implico.jpg'}
   ];
 
 const algoritmo = [
-  {icon:'🎵', tag:'MI ALGORITMO', title:'Música', text:'Toco varios instrumentos — el ritmo se me nota hasta en el montaje.'},
-  {icon:'🎬', tag:'MI ALGORITMO', title:'Cine y series', text:'De ahí aprendo estructura, tono y cómo enganchar en el primer segundo.'},
-  {icon:'🎙️', tag:'MI ALGORITMO', title:'Podcasts', text:'Me enseñaron a escuchar antes de crear.'},
-  {icon:'📱', tag:'MI ALGORITMO', title:'Redes sociales', text:'Mi laboratorio: pruebo, mido y aprendo cada día.'},
-  {icon:'⚽', tag:'MI ALGORITMO', title:'Deportes', text:'Más de 10 practicados — la disciplina se traslada a cada proyecto.'},
+  {icon:'🎵', tag:'MI ALGORITMO', tag_ca:'EL MEU ALGORITME', title:'Música', title_ca:'Música', text:'Toco varios instrumentos — el ritmo se me nota hasta en el montaje.', text_ca:'Toco diversos instruments — el ritme se\'m nota fins i tot en el muntatge.'},
+  {icon:'🎬', tag:'MI ALGORITMO', tag_ca:'EL MEU ALGORITME', title:'Cine y series', title_ca:'Cinema i sèries', text:'De ahí aprendo estructura, tono y cómo enganchar en el primer segundo.', text_ca:'D\'aquí aprenc estructura, to i com enganxar en el primer segon.'},
+  {icon:'🎙️', tag:'MI ALGORITMO', tag_ca:'EL MEU ALGORITME', title:'Podcasts', title_ca:'Podcasts', text:'Me enseñaron a escuchar antes de crear.', text_ca:'Em van ensenyar a escoltar abans de crear.'},
+  {icon:'📱', tag:'MI ALGORITMO', tag_ca:'EL MEU ALGORITME', title:'Redes sociales', title_ca:'Xarxes socials', text:'Mi laboratorio: pruebo, mido y aprendo cada día.', text_ca:'El meu laboratori: provo, mesuro i aprenc cada dia.'},
+  {icon:'⚽', tag:'MI ALGORITMO', tag_ca:'EL MEU ALGORITME', title:'Deportes', title_ca:'Esports', text:'Más de 10 practicados — la disciplina se traslada a cada proyecto.', text_ca:'Més de 10 practicats — la disciplina es trasllada a cada projecte.'},
 ];
 
 const futuro = [
-  {icon:'📱', tag:'2024', title:'Haz RTVE', text:'Curso de Creación de Contenido para RRSS.', img:'foto/rtve.jpeg'},
-  {icon:'🎧', tag:'2025', title:'CIFO', text:'Curso de Sonoritzación de Conciertos en directo.',img:'foto/so.jpg'},
-  {icon:'🎞️', tag:'2025', title:'Haz RTVE', text:'Técnicas de postproducción: edición, color y sonido.',img:'foto/rtve.jpeg'},
-  {icon:'⚽', tag:'2026', title:'Barça Innovation Hub', text:'Curso de gestión de Redes Sociales en el Deporte',img:'foto/barca.jpg'}
+  {icon:'📱', tag:'2024', title:'Haz RTVE', title_ca:'Haz RTVE', text:'Curso de Creación de Contenido para RRSS.', text_ca:'Curs de Creació de Contingut per a XXSS.', img:'foto/rtve.jpeg'},
+  {icon:'🎧', tag:'2025', title:'CIFO', title_ca:'CIFO', text:'Curso de Sonoritzación de Conciertos en directo.', text_ca:'Curs de Sonorització de Concerts en directe.',img:'foto/so.jpg'},
+  {icon:'🎞️', tag:'2025', title:'Haz RTVE', title_ca:'Haz RTVE', text:'Técnicas de postproducción: edición, color y sonido.', text_ca:'Tècniques de postproducció: edició, color i so.',img:'foto/rtve.jpeg'},
+  {icon:'⚽', tag:'2026', title:'Barça Innovation Hub', title_ca:'Barça Innovation Hub', text:'Curso de gestión de Redes Sociales en el Deporte', text_ca:'Curs de gestió de Xarxes Socials en l\'Esport',img:'foto/barca.jpg'}
 ];
 
 const storiesData = {intro, timeline, trabajar, algoritmo, futuro};
 const storyWhoLabel = {intro:'Presentación', timeline:'Timeline', trabajar:'Trabajar conmigo', algoritmo:'Mi algoritmo', futuro:'Upgrade'};
+const storyWhoLabelCa = {intro:'Presentació', timeline:'Timeline', trabajar:'Treballar amb mi', algoritmo:'El meu algoritme', futuro:'Upgrade'};
 
 /* ========= UTILS ========= */
 let scrollLockCount = 0;
@@ -3557,14 +3568,26 @@ function buildSlides(){
       div.className = 'story-slide ' + grads[i % grads.length];
     }
     div.dataset.i = i;
+    const _lang = (window.currentSiteLang === 'ca') ? 'ca' : 'es';
+    const sTitle = (_lang === 'ca' && s.title_ca) ? s.title_ca : s.title;
+    const sRole  = (_lang === 'ca' && s.role_ca)  ? s.role_ca  : s.role;
+    const sText  = (_lang === 'ca' && s.text_ca)  ? s.text_ca  : s.text;
+    const sTag   = (_lang === 'ca' && s.tag_ca)   ? s.tag_ca   : s.tag;
     if(curKey === 'timeline'){
-      div.innerHTML = `<div class="s-tag">${s.tag}</div><h3>${s.icon} ${s.title}</h3>${s.role ? `<div class="s-role">${s.role}</div>` : ''}<p>${s.text}</p>`;
+      div.innerHTML = `<div class="s-tag">${sTag}</div><h3>${s.icon} ${sTitle}</h3>${sRole ? `<div class="s-role">${sRole}</div>` : ''}<p>${sText}</p>`;
     } else {
-      div.innerHTML = `<div class="s-icon">${s.icon}</div>${s.tag ? `<div class="s-tag">${s.tag}</div>` : ''}<h3>${s.title}</h3><p>${s.text}</p>`;
+      div.innerHTML = `<div class="s-icon">${s.icon}</div>${sTag ? `<div class="s-tag">${sTag}</div>` : ''}<h3>${sTitle}</h3><p>${sText}</p>`;
     }
     host.appendChild(div);
   });
 }
+window.refreshStorySlides = function(){
+  if(overlay && overlay.classList.contains('open') && !storyIsVideo){
+    buildSlides();
+    renderIndex();
+    if(curKey && storyWho) storyWho.textContent = (window.currentSiteLang === 'ca') ? storyWhoLabelCa[curKey] : storyWhoLabel[curKey];
+  }
+};
 function buildProgress(){
   progressHost.innerHTML = '';
   curSlides.forEach(() => {
@@ -3614,7 +3637,7 @@ function openStory(key, trigger){
   curKey = key;
   curIndex = 0;
   storyTrigger = trigger || null;
-  storyWho.textContent = storyWhoLabel[key];
+  storyWho.textContent = (window.currentSiteLang === 'ca') ? storyWhoLabelCa[key] : storyWhoLabel[key];
   buildSlides();
   buildProgress();
   renderIndex();
@@ -4029,14 +4052,14 @@ document.addEventListener('keydown', e => {
 // mismo icono que el vídeo más representativo del proyecto para que la portada lo represente.
 // "desc" es opcional: si lo dejas vacío o null, la tarjeta no muestra descripción.
 const collectionsData = [
-  {id:'c1', title:'CNPN Rugby Femení', grad:'g4', icon:"",
-    desc:'Videos que he hecho para el Instagram del CNPN Femenino'},
+  {id:'c1', title:'CNPN Rugby Femenino', title_ca:'CNPN Rugby Femení', grad:'g4', icon:"",
+    desc:'Videos que he hecho para el Instagram del CNPN Femenino', desc_ca:'Vídeos que he fet per a l\'Instagram del CNPN Femení'},
   {id:'c2', title:'Tu Cara Me Suena', grad:'g1',icon:"",
-    desc:'Algunos de los vídeos que edite para el especial "Momentazos".'},
+    desc:'Algunos de los vídeos que edite para el especial "Momentazos".', desc_ca:'Alguns dels vídeos que vaig editar per a l\'especial "Momentazos".'},
   {id:'c3', title:'POPSPORT', grad:'g2',icon:"",
-    desc:'Videos que he creado para el canal de Popsport'},
-  {id:'c4', title:'Proyectos personales', grad:'g3',icon:"",
-    desc:'Proyectos propios que he grabado y editado para mi propia cuenta'}
+    desc:'Videos que he creado para el canal de Popsport', desc_ca:'Vídeos que he creat per al canal de Popsport'},
+  {id:'c4', title:'Proyectos personales', title_ca:'Projectes personals', grad:'g3',icon:"",
+    desc:'Proyectos propios que he grabado y editado para mi propia cuenta', desc_ca:'Projectes propis que he gravat i editat per al meu propi compte'}
 ];
 
 // EDITA AQUÍ: cada vídeo pertenece a una colección ("collection" = id de arriba).
@@ -4046,74 +4069,74 @@ const collectionsData = [
 // con el nombre exacto de tu archivo .mp4 dentro de la carpeta foto/.
 const reelsData = [
   // — Colección: CNPNl —
-  {id:'r1', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2026', grad:'g4', icon:'🎞️', project:'p1',
+  {id:'r1', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2026', grad:'g4', icon:'🎞️', project:'p1',
    video: 'https://res.cloudinary.com/sjc454mj/video/upload/v1785350300/v1_jfslgc.mp4', 
-   desc:'Videos creados para el Instagram del CNPN femenino'},
-  {id:'r1b', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición', year:'2026', grad:'g4', icon:'🎥',
+   desc:'Videos creados para el Instagram del CNPN femenino', desc_ca:'Vídeos creats per a l\'Instagram del CNPN femení'},
+  {id:'r1b', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición', role_ca:'Edició', year:'2026', grad:'g4', icon:'🎥',
    video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350299/v2_zjtg6y.mp4'},
-  {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2026', grad:'g4', icon:'📱',
+  {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2026', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350303/v7_vos8mi.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición', year:'2026', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición', role_ca:'Edició', year:'2026', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350301/v4_tsl7f0.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2026', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2026', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350302/v5_ebeaxp.mp4', },
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2026', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2026', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350302/v6_oztiwl.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2025', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2025', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350302/v3_vyrq8a.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2025', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2025', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350307/v8_bgb42b.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2025', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2025', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350305/v9_tyexby.mp4'},
-   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', role:'Edición · Grabación', year:'2024', grad:'g4', icon:'📱',
+   {id:'r1c', collection:'c1', title:'Rugby Femenino Poblenou', title_ca:'Rugbi Femení Poblenou', role:'Edición · Grabación', role_ca:'Edició · Gravació', year:'2024', grad:'g4', icon:'📱',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785350306/v10_cgtbkj.mp4'},
     
 
   // — Colección: Ediciones —
-  {id:'r2', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2024', grad:'g1', icon:'✂️', project:'p3',
+  {id:'r2', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2024', grad:'g1', icon:'✂️', project:'p3',
    video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785349179/M1_nv4ajb.mp4',
-    desc:'Proyecto de divulgación de cultura deportiva'},
-  {id:'r2b', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🏉',
+    desc:'Proyecto de divulgación de cultura deportiva', desc_ca:'Projecte de divulgació de cultura esportiva'},
+  {id:'r2b', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🏉',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785348961/d1_o9lypj.mp4'},
-  {id:'r2c', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🎬',
+  {id:'r2c', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🎬',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785349179/L1_qrqdwn.mp4'},
-  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
+  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785348969/m2_hcd8nv.mp4'},
-  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
+  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785348970/d2_gx86pn.mp4'},
-  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
+  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785348969/l2_lxtqlw.mp4'},
-  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
+  {id:'r2d', collection:'c3', title:'POPSPORT', role:'Proyecto propio', role_ca:'Projecte propi', year:'2026', grad:'g1', icon:'🔥', video:'foto/highlights.mp4',
   video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785348968/m3_u05dvz.mp4'},
 
   // — Colección: Animaciones —
-  {id:'r3', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'✨', project:'p2', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346249/Melany_irb0ib.mp4',
-    desc:'Montaje de cápsulas para un programa especial para Antena 3'},
-  {id:'r3b', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🔤',
+  {id:'r3', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'✨', project:'p2', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346249/Melany_irb0ib.mp4',
+    desc:'Montaje de cápsulas para un programa especial para Antena 3', desc_ca:'Muntatge de càpsules per a un programa especial per a Antena 3'},
+  {id:'r3b', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🔤',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346147/LA_VIE_EN_ROSE_wo4oud.mp4'},
-  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🌀',
+  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🌀',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346145/Carita_ohxdbn.mp4'},
-  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🌀',
+  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🌀',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346932/ANGEL_LLACER_y8pps1.mp4'},
-  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🌀',
+  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🌀',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346147/ESCALES_cx2svs.mp4'},
-  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🌀',
+  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🌀',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346170/WINNER_wxodl5.mp4'},
-  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', year:'2026', grad:'g2', icon:'🌀',
+  {id:'r3c', collection:'c2', title:'Tu Cara Me Suena', role:'Montaje', role_ca:'Muntatge', year:'2026', grad:'g2', icon:'🌀',
     video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785346171/NICKY_MINAJ_mh3oqt.mp4'},
 
   // — Colección: Vídeos personales —
-  {id:'r4', collection:'c4', title:'Semifinales Champions', role:'Cámara · Edición', year:'2026', grad:'g3', icon:'🎥', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P1_dp8o5r.mp4',
-    desc:'Proyectos personales grabados y editados por mi.'},
-  {id:'r4b', collection:'c4', title:'Trabajando en OT', role:'Cámara · Creacioón', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354047/P2_faqcyk.mp4',
+  {id:'r4', collection:'c4', title:'Semifinales Champions', title_ca:'Semifinals Champions', role:'Cámara · Edición', role_ca:'Càmera · Edició', year:'2026', grad:'g3', icon:'🎥', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P1_dp8o5r.mp4',
+    desc:'Proyectos personales grabados y editados por mi.', desc_ca:'Projectes personals gravats i editats per mi.'},
+  {id:'r4b', collection:'c4', title:'Trabajando en OT', title_ca:'Treballant a OT', role:'Cámara · Creacioón', role_ca:'Càmera · Creació', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354047/P2_faqcyk.mp4',
     },
-    {id:'r4b', collection:'c4', title:'Vlog Nueva York #1', role:'Cámara · Creación', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354052/P3_gr4son.mp4',
+    {id:'r4b', collection:'c4', title:'Vlog Nueva York #1', title_ca:'Vlog Nova York #1', role:'Cámara · Creación', role_ca:'Càmera · Creació', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354052/P3_gr4son.mp4',
     },
-    {id:'r4b', collection:'c4', title:'Vlog Nueva York #2', role:'Cámara · Creación', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P4_fprjfe.mp4',
+    {id:'r4b', collection:'c4', title:'Vlog Nueva York #2', title_ca:'Vlog Nova York #2', role:'Cámara · Creación', role_ca:'Càmera · Creació', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P4_fprjfe.mp4',
     },
-    {id:'r4b', collection:'c4', title:'Vlog Nueva York #3', role:'Cámara · Creación', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P5_fyvksb.mp4',
+    {id:'r4b', collection:'c4', title:'Vlog Nueva York #3', title_ca:'Vlog Nova York #3', role:'Cámara · Creación', role_ca:'Càmera · Creació', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354050/P5_fyvksb.mp4',
     },
-    {id:'r4b', collection:'c4', title:'Vlog Nueva York #4', role:'Cámara · Creación', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354051/P6_jc8ads.mp4',
+    {id:'r4b', collection:'c4', title:'Vlog Nueva York #4', title_ca:'Vlog Nova York #4', role:'Cámara · Creación', role_ca:'Càmera · Creació', year:'2026', grad:'g3', icon:'✈️', video:'https://res.cloudinary.com/sjc454mj/video/upload/v1785354051/P6_jc8ads.mp4',
     },
 ];
 
@@ -4143,22 +4166,25 @@ function videosForCollection(cid){
 
 /* ---- Vista de colecciones (portadas tipo "serie/playlist") ---- */
 function buildCollections(){
+  const _lang = (window.currentSiteLang === 'ca') ? 'ca' : 'es';
   collectionsGridEl.innerHTML = collectionsData.map(c => {
     const count = videosForCollection(c.id).length;
+    const cTitle = (_lang === 'ca' && c.title_ca) ? c.title_ca : c.title;
+    const cDesc  = (_lang === 'ca' && c.desc_ca)  ? c.desc_ca  : c.desc;
     return `
-    <div class="collection-card" data-collection="${c.id}" tabindex="0" role="button" aria-label="Abrir colección ${c.title}">
+    <div class="collection-card" data-collection="${c.id}" tabindex="0" role="button" aria-label="Abrir colección ${cTitle}">
       <div class="collection-cover-wrap">
         <span class="collection-stack l2" aria-hidden="true"></span>
         <span class="collection-stack l1" aria-hidden="true"></span>
         <div class="collection-cover ${c.grad}" id="collection-cover-${c.id}">
           <span class="collection-cover-icon">${c.icon}</span>
           <div class="collection-info">
-            <span class="collection-title">${c.title}</span>
+            <span class="collection-title">${cTitle}</span>
             <span class="collection-count">${count} vídeo${count === 1 ? '' : 's'}</span>
           </div>
         </div>
       </div>
-      ${c.desc ? `<p class="collection-desc">${c.desc}</p>` : ''}
+      ${cDesc ? `<p class="collection-desc">${cDesc}</p>` : ''}
     </div>`;
   }).join('');
   document.querySelectorAll('[data-collection]').forEach(el => {
@@ -4182,6 +4208,13 @@ function buildCollections(){
   });
 }
 buildCollections();
+window.refreshReelsUI = function(){
+  buildCollections();
+  if(reelsViewerEl && reelsViewerEl.classList.contains('open')){
+    const openCol = collectionsData[currentCollectionIndex];
+    if(openCol) buildReelsTrack(openCol.id);
+  }
+};
 
 let endDrawerOpen = false; // ¿está desplegado el drawer de "ver proyecto completo" del último vídeo?
 
@@ -4195,6 +4228,8 @@ function buildReelsTrack(cid){
   // proyecto al que enlaza esta colección: el primer vídeo de la colección que tenga "project" asignado
   const endProjectId = vids.find(r => r.project)?.project || null;
   const pm = endProjectId ? projectMeta[endProjectId] : null;
+  const _lang = (window.currentSiteLang === 'ca') ? 'ca' : 'es';
+  const colTitle = col ? ((_lang === 'ca' && col.title_ca) ? col.title_ca : col.title) : null;
 
   /* drawer de cierre: NO es una slide nueva. Se inyecta dentro del último <div class="reel-slide">
      (marcado con "reel-slide-last"), sobre el mismo <video> de siempre — nada se duplica ni se
@@ -4207,7 +4242,7 @@ function buildReelsTrack(cid){
       </div>
       <div class="reel-end-card">
         ${pm?.cover ? `<img class="reel-end-thumb" src="${pm.cover}" alt="">` : ''}
-        <span class="reel-end-label cta-box-tag">${endProjectId ? 'Caso de estudio' : `Fin de ${col ? `“${col.title}”` : 'la colección'}`}</span>
+        <span class="reel-end-label cta-box-tag">${endProjectId ? 'Caso de estudio' : `Fin de ${colTitle ? `“${colTitle}”` : 'la colección'}`}</span>
         ${pm?.title ? `<h4 class="reel-end-title">${pm.title}</h4>` : ''}
         ${endProjectId
           ? `<button class="reel-project-btn reel-end-btn cta-btn" data-view-project="${endProjectId}">Ver proyecto completo ↗</button>`
@@ -4218,6 +4253,9 @@ function buildReelsTrack(cid){
 
   const videoSlidesHtml = vids.map((r, i) => {
     const isLast = i === vids.length - 1;
+    const rTitle = (_lang === 'ca' && r.title_ca) ? r.title_ca : r.title;
+    const rRole  = (_lang === 'ca' && r.role_ca)  ? r.role_ca  : r.role;
+    const rDesc  = (_lang === 'ca' && r.desc_ca)  ? r.desc_ca  : r.desc;
     return `
     <div class="reel-slide${isLast ? ' reel-slide-last' : ''}" data-reel-id="${r.id}">
       <div class="reel-slide-bg ${r.grad}">
@@ -4226,12 +4264,12 @@ function buildReelsTrack(cid){
           : `<span class="reel-slide-icon">${r.icon}</span>`}
       </div>
       <div class="reel-info">
-        <span class="reel-role mono">${r.role}</span>
+        <span class="reel-role mono">${rRole}</span>
         <div class="reel-title-row">
-          <h3>${r.title}</h3>
+          <h3>${rTitle}</h3>
           <span class="reel-year mono">${r.year}</span>
         </div>
-        <p>${r.desc && !r.desc.startsWith('//') ? r.desc : ''}</p>
+        <p>${rDesc && !rDesc.startsWith('//') ? rDesc : ''}</p>
       </div>
       ${r.project ? `<div class="reel-project-wrap"><button class="reel-project-btn" data-view-project="${r.project}">Ver proyecto completo ↗</button></div>` : ''}
       ${i === 0 ? '<div class="reel-swipe-hint" id="reelSwipeHint"><span>▲</span>Desliza</div>' : ''}
@@ -4264,7 +4302,7 @@ function buildReelsTrack(cid){
   updateDesktopReelUI();
 
   if(col){
-    reelsCollectionTitleEl.textContent = col.title;
+    reelsCollectionTitleEl.textContent = (_lang === 'ca' && col.title_ca) ? col.title_ca : col.title;
     reelsCollectionCountEl.textContent = vids.length === 1 ? '1 vídeo' : `${vids.length} vídeos`;
   }
 }
@@ -4935,7 +4973,16 @@ function showToast(msg){
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => toast.classList.remove('show'), 2600);
 }
-document.getElementById('cvBtn').addEventListener('click', () => showToast('📄 Muy pronto podrás descargar mi CV aquí'));
+document.getElementById('cvBtn').addEventListener('click', () => {
+  const esCa = (window.currentSiteLang === 'ca') || (document.documentElement.getAttribute('lang') === 'ca');
+  const cvFile = esCa ? 'doc/cv_cat.pdf' : 'doc/cv_es.pdf';
+  const link = document.createElement('a');
+  link.href = cvFile;
+  link.download = cvFile.split('/').pop();
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
 
 /* ========= SCROLL REVEAL ========= */
 const io = new IntersectionObserver((entries) => {
@@ -4952,116 +4999,147 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   const hilosData = {
     hilo1: {
       titulo: "💡 Hilo: CÓMO NACIÓ POPSPORT?💡",
+      tituloCa: "💡 Fil: COM VA NÉIXER POPSPORT?💡",
       tweets: [
         {
-          texto: "<b> 💡¿CÓMO NACIÓ POPSPORT?💡</b><br>Todo el mundo conoce el deporte.<br>Pero muy pocos conocen la historia.📖"
+          texto: "<b> 💡¿CÓMO NACIÓ POPSPORT?💡</b><br>Todo el mundo conoce el deporte.<br>Pero muy pocos conocen la historia.📖",
+          textoCa: "<b> 💡COM VA NÉIXER POPSPORT?💡</b><br>Tothom coneix l'esport.<br>Però molt pocs en coneixen la història.📖"
         },
         {
           texto: "A veces no hace falta que te guste un deporte para que te fascine una de sus historias.<br>Puede que nunca hayas visto un partido de fútbol, pero probablemente sepas que Maradona marcó un gol con la mano.<br>O sabrías decirme quién marcó el gol que le dio un mundial a España.<br>Al final, no recordamos solo los resultados. Recordamos las historias.",
+          textoCa: "De vegades no cal que t'agradi un esport perquè et fascini una de les seves històries.<br>Potser mai has vist un partit de futbol, però probablement saps que Maradona va marcar un gol amb la mà.<br>O sabries dir-me qui va marcar el gol que li va donar un mundial a Espanya.<br>Al final, no recordem només els resultats. Recordem les històries.",
           imagenes: ["foto/iniesta.jpg", "foto/maradona.jpg"] 
         },
         {
-          texto: "Y entonces pensé...<br>¿Y si el deporte pudiera ser una forma de descubrir el mundo?<br><br>🏺 Historia<br><br>🌍 Cultura<br><br>🎭 Tradiciones<br><br>👥 Personas<br><br>🏆 Deportes que nunca habías oído."
+          texto: "Y entonces pensé...<br>¿Y si el deporte pudiera ser una forma de descubrir el mundo?<br><br>🏺 Historia<br><br>🌍 Cultura<br><br>🎭 Tradiciones<br><br>👥 Personas<br><br>🏆 Deportes que nunca habías oído.",
+          textoCa: "I aleshores vaig pensar...<br>I si l'esport pogués ser una forma de descobrir el món?<br><br>🏺 Història<br><br>🌍 Cultura<br><br>🎭 Tradicions<br><br>👥 Persones<br><br>🏆 Esports que mai havies sentit."
         },
         {
           texto: "Por eso nació POPSPORT.<br>Un proyecto de divulgación deportiva que utiliza el deporte para hablar de historia, cultura y personas.<br>Desde grandes leyendas hasta deportes que la mayoría ni siquiera conoce.",
+          textoCa: "Per això va néixer POPSPORT.<br>Un projecte de divulgació esportiva que utilitza l'esport per parlar d'història, cultura i persones.<br>Des de grans llegendes fins a esports que la majoria ni tan sols coneix.",
           imagenes: ["foto/calcioStorico.jpg", "foto/ciclismo.jpg", "foto/bossaball.jpg"]
         }, 
         {
-          texto: "El objetivo nunca fue enseñar más deporte.<br>Fue despertar la curiosidad.<br>Que alguien terminara un vídeo con ganas de seguir investigando por su cuenta."
+          texto: "El objetivo nunca fue enseñar más deporte.<br>Fue despertar la curiosidad.<br>Que alguien terminara un vídeo con ganas de seguir investigando por su cuenta.",
+          textoCa: "L'objectiu mai va ser ensenyar més esport.<br>Va ser despertar la curiositat.<br>Que algú acabés un vídeo amb ganes de continuar investigant pel seu compte."
         },
         {
           texto: "Al final, el deporte solo era la excusa.<br>Lo verdaderamente importante siempre fueron las personas y las historias que lo rodean.",
+          textoCa: "Al final, l'esport només era l'excusa.<br>El veritablement important sempre van ser les persones i les històries que l'envolten.",
           imagenes: ["foto/remix.jpg",]
         }
       ]
     },
     hilo2: {
       titulo: "⚙️ Hilo: Construyendo POPSPORT",
+      tituloCa: "⚙️ Fil: Construint POPSPORT",
       tweets: [
         {
-          texto: "<b>⚙️Construyendo POPSPORT</b><br>Después de definir la idea, el siguiente reto era convertirla en un proyecto real"
+          texto: "<b>⚙️Construyendo POPSPORT</b><br>Después de definir la idea, el siguiente reto era convertirla en un proyecto real",
+          textoCa: "<b>⚙️Construint POPSPORT</b><br>Després de definir la idea, el següent repte era convertir-la en un projecte real"
         },
         {
           texto: "Desde el principio tuve claro que POPSPORT debía ser un proyecto <b>multiplataforma</b>, capaz de adaptarse a la forma en la que hoy consumimos contenido.", 
+          textoCa: "Des del principi tenia clar que POPSPORT havia de ser un projecte <b>multiplataforma</b>, capaç d'adaptar-se a la forma en què avui consumim contingut.",
           imagenes: ["foto/tiktok.jpg", "foto/ig2.jpg", "foto/youtube.jpg"]
         },
         {
-          texto: "El formato principal son vídeos cortos en vertical📱, diseñados para captar la atención desde los primeros segundos.<br>📜Historias breves, 👀visuales y ✨fáciles de consumir, sin renunciar al contexto que las hace interesantes." 
+          texto: "El formato principal son vídeos cortos en vertical📱, diseñados para captar la atención desde los primeros segundos.<br>📜Historias breves, 👀visuales y ✨fáciles de consumir, sin renunciar al contexto que las hace interesantes.",
+          textoCa: "El format principal són vídeos curts en vertical📱, dissenyats per captar l'atenció des dels primers segons.<br>📜Històries breus, 👀visuals i ✨fàcils de consumir, sense renunciar al context que les fa interessants." 
         },
         {
           texto: "Para que el contenido tenga una una identidad clara, decidí organizarlo en diferentes colecciones.<br>🟣 PopSport Monday: Historias y curiosidades del deporte.<br>🔵 Discovery:Deportes que casi nadie conoce.<br>🟡 Legends: Las personas y momentos que cambiaron la historia.",
+          textoCa: "Perquè el contingut tingués una identitat clara, vaig decidir organitzar-lo en diferents col·leccions.<br>🟣 PopSport Monday: Històries i curiositats de l'esport.<br>🔵 Discovery: Esports que gairebé ningú coneix.<br>🟡 Legends: Les persones i moments que van canviar la història.",
           imagenes: ["foto/psm.png", "foto/d.png", "foto/l.png"]
         },
         {
           texto: "Cada colección tiene su propia <b>identidad visual</b>.💡🔎🏆<br>Colores, miniaturas y pequeños detalles que permitieran reconocer el tipo de contenido antes incluso de pulsar sobre el vídeo.",
+          textoCa: "Cada col·lecció té la seva pròpia <b>identitat visual</b>.💡🔎🏆<br>Colors, miniatures i petits detalls que permetien reconèixer el tipus de contingut abans fins i tot de prémer sobre el vídeo.",
           imagenes: ["foto/prueba.png", "foto/colores.png", "foto/pop.png"]
         },
         {
           texto: "Detrás de cada publicación hay una <b>planificación previa</b>📆.<br>Todo el contenido se organiza en Notion, donde gestiono ideas, investigación, guiones y calendario de cada vídeo.",
+          textoCa: "Darrere de cada publicació hi ha una <b>planificació prèvia</b>📆.<br>Tot el contingut s'organitza a Notion, on gestiono idees, recerca, guions i calendari de cada vídeo.",
           imagenes: ["foto/notion.png"]
         },
         {
-          texto: "El calendario nunca es aleatorio.<br>Intento aprovechar el contexto deportivo de cada momento para publicar historias relacionadas con la conversación que ya está teniendo la audiencia.<br>La actualidad sirve como punto de partida para descubrir nuevas historias." 
+          texto: "El calendario nunca es aleatorio.<br>Intento aprovechar el contexto deportivo de cada momento para publicar historias relacionadas con la conversación que ya está teniendo la audiencia.<br>La actualidad sirve como punto de partida para descubrir nuevas historias.",
+          textoCa: "El calendari mai és aleatori.<br>Intento aprofitar el context esportiu de cada moment per publicar històries relacionades amb la conversa que ja està tenint l'audiència.<br>L'actualitat serveix com a punt de partida per descobrir noves històries." 
         },
         {
           texto: "POPSPORT todavía está creciendo.<br>Cada vídeo, cada publicación y cada idea forman parte de un proyecto que <b>sigue evolucionando</b>, pero que mantiene intacta la misma intención con la que empezó:<br>Descubrir historias capaces de acercar el deporte a cualquier persona.",
+          textoCa: "POPSPORT encara està creixent.<br>Cada vídeo, cada publicació i cada idea formen part d'un projecte que <b>segueix evolucionant</b>, però que manté intacta la mateixa intenció amb què va començar:<br>Descobrir històries capaces d'apropar l'esport a qualsevol persona.",
           imagenes: ["foto/h2.png"]
         }
       ]
     },
     hilo3: {
       titulo: "🎞️ASÍ SE CREA UN VÍDEO",
+      tituloCa: "🎞️AIXÍ ES CREA UN VÍDEO",
       tweets: [
         {
-          texto: "<b>🎞️ASÍ SE CREA UN VÍDEO</b><br>Este es el proceso de creación de un video:"
+          texto: "<b>🎞️ASÍ SE CREA UN VÍDEO</b><br>Este es el proceso de creación de un video:",
+          textoCa: "<b>🎞️AIXÍ ES CREA UN VÍDEO</b><br>Aquest és el procés de creació d'un vídeo:"
         },
         {
           texto: "📄Documentación<br>Todo empieza con una fase de investigación.<br>Antes de empezar a escribir, recopilo información de diferentes fuentes para asegurar que el contenido sea claro, riguroso y fácil de comprender.",
+          textoCa: "📄Documentació<br>Tot comença amb una fase de recerca.<br>Abans de començar a escriure, recopilo informació de diferents fonts per assegurar que el contingut sigui clar, rigorós i fàcil de comprendre.",
           imagenes: ["foto/fifa.png"]
         },
         {
-          texto: "✍️ Construcción del guion<br>Con la información recopilada, construyo el guion del vídeo.<br>Utilizo herramientas de IA como apoyo para organizar ideas, explorar diferentes enfoques y agilizar el proceso de escritura."
+          texto: "✍️ Construcción del guion<br>Con la información recopilada, construyo el guion del vídeo.<br>Utilizo herramientas de IA como apoyo para organizar ideas, explorar diferentes enfoques y agilizar el proceso de escritura.",
+          textoCa: "✍️ Construcció del guió<br>Amb la informació recopilada, construeixo el guió del vídeo.<br>Utilitzo eines d'IA com a suport per organitzar idees, explorar diferents enfocaments i agilitzar el procés d'escriptura."
         },
         {
           texto: "🎙️ Locución<br>Una vez terminado el guion, genero la narración utilizando ElevenLabs.<br>Esto me permite agilizar el proceso de trabajo, pero manteniendo una identidad coherente entre todos los vídeos.",
+          textoCa: "🎙️ Locució<br>Un cop acabat el guió, genero la narració utilitzant ElevenLabs.<br>Això em permet agilitzar el procés de treball, tot mantenint una identitat coherent entre tots els vídeos.",
           imagenes: ["foto/eleven.png"]
         },
         {
-          texto: "🖼️ Localización de materiales<br>Después comienza una de las fases más largas del proceso.<br>Busco imágenes, vídeos y recursos gráficos que acompañen cada parte de la narración. Cada plano tiene que aportar contexto y reforzar la historia que se está contando."
+          texto: "🖼️ Localización de materiales<br>Después comienza una de las fases más largas del proceso.<br>Busco imágenes, vídeos y recursos gráficos que acompañen cada parte de la narración. Cada plano tiene que aportar contexto y reforzar la historia que se está contando.",
+          textoCa: "🖼️ Cerca de materials<br>Després comença una de les fases més llargues del procés.<br>Busco imatges, vídeos i recursos gràfics que acompanyin cada part de la narració. Cada pla ha d'aportar context i reforçar la història que s'està explicant."
         },
         {
           texto: "✂️Edición<br>Con todos los elementos preparados, llega la fase de montaje.<br>Edición del vídeo, sincronización de la locución, subtítulos, música y ritmo narrativo.",
+          textoCa: "✂️Edició<br>Amb tots els elements preparats, arriba la fase de muntatge.<br>Edició del vídeo, sincronització de la locució, subtítols, música i ritme narratiu.",
           imagenes: ["foto/edicio.png"]
         },
         {
           texto: "📲 Publicación<br>Cada publicación se adapta a las distintas plataformas, se prepara el texto, se selecciona la música y se programa siguiendo el calendario editorial.",
+          textoCa: "📲 Publicació<br>Cada publicació s'adapta a les diferents plataformes, es prepara el text, se selecciona la música i es programa seguint el calendari editorial.",
           imagenes: ["foto/meta2.png", "foto/ybpop.png", "foto/tiktokstudio.png"]
         } 
       ]
     },
     hilo4: {
       titulo: "📚QUE ME ESTÁ ENSEÑADO ESTE PROYECTO",
+      tituloCa: "📚QUÈ M'ESTÀ ENSENYANT AQUEST PROJECTE",
       tweets: [
         {
-          texto: "<b>📚QUE ME ESTÁ ENSEÑADO ESTE PROYECTO</b>"
+          texto: "<b>📚QUE ME ESTÁ ENSEÑADO ESTE PROYECTO</b>",
+          textoCa: "<b>📚QUÈ M'ESTÀ ENSENYANT AQUEST PROJECTE</b>"
         },
          {
           texto: "POPSPORT me ha obligado a salir de mi zona de confort.<br>Por primera vez tuve que trabajar con herramientas de planificación, gestión y monitorización que nunca antes había necesitado.",
+          textoCa: "POPSPORT m'ha obligat a sortir de la meva zona de confort.<br>Per primera vegada vaig haver de treballar amb eines de planificació, gestió i monitoratge que mai abans havia necessitat.",
           imagenes: ["foto/notion2.png", "foto/meta3.jpg", "foto/metricool.jpg"]
         },
         {
           texto: "También me ha permitido experimentar todo el proceso de creación de contenido.<br>Desde la investigación hasta la publicación.<br>Y entender que cada vídeo empieza mucho antes de abrir el editor.",
+          textoCa: "També m'ha permès experimentar tot el procés de creació de contingut.<br>Des de la recerca fins a la publicació.<br>I entendre que cada vídeo comença molt abans d'obrir l'editor.",
           imagenes: ["foto/p1.png", "foto/p2.png", "foto/p3.png"]
         },
         {
-          texto: "Otra de las grandes lecciones ha sido:<br>✨entender cómo funcionan realmente las redes sociales.✨<br>La importancia de la constancia, el momento de publicación, la música, los hashtags o la retención son factores que condicionan el alcance de cada vídeo y que forman parte del proceso creativo tanto como la propia edición."
+          texto: "Otra de las grandes lecciones ha sido:<br>✨entender cómo funcionan realmente las redes sociales.✨<br>La importancia de la constancia, el momento de publicación, la música, los hashtags o la retención son factores que condicionan el alcance de cada vídeo y que forman parte del proceso creativo tanto como la propia edición.",
+          textoCa: "Una altra de les grans lliçons ha estat:<br>✨entendre com funcionen realment les xarxes socials.✨<br>La importància de la constància, el moment de publicació, la música, els hashtags o la retenció són factors que condicionen l'abast de cada vídeo i que formen part del procés creatiu tant com la pròpia edició."
         },
         {
-          texto: "Pero, sobre todo, POPSPORT me ha hecho darme cuenta de todo el trabajo invisible que hay detrás del contenido que consumimos c<br>Y creo que esa ha sido la mayor enseñanza de este proyecto."
+          texto: "Pero, sobre todo, POPSPORT me ha hecho darme cuenta de todo el trabajo invisible que hay detrás del contenido que consumimos c<br>Y creo que esa ha sido la mayor enseñanza de este proyecto.",
+          textoCa: "Però, sobretot, POPSPORT m'ha fet adonar-me de tota la feina invisible que hi ha darrere del contingut que consumim.<br>I crec que aquesta ha estat la gran ensenyança d'aquest projecte."
         },
         {
           texto: "Hoy POPSPORT sigue creciendo con esa misma esencia: cultura pop y deporte contados de una forma distinta.",
+          textoCa: "Avui POPSPORT segueix creixent amb aquesta mateixa essència: cultura pop i esport explicats d'una forma diferent.",
           imagenes: ["foto/crecimiento.png"]
         }
       ]
@@ -5234,7 +5312,12 @@ function openThread(id) {
 
   ultimoHiloAbierto = id;
 
+  const esCa = (window.currentSiteLang === 'ca') || (document.documentElement.getAttribute('lang') === 'ca');
+
   const tweetsHtml = hilo.tweets.map((t, i) => {
+
+    // Elegimos el texto según el idioma activo (con fallback al castellano)
+    const textoMostrado = esCa && t.textoCa ? t.textoCa : t.texto;
 
     // 1. Preparamos el HTML para las imágenes (soporta 'imagenes' o 'img')
     let mediaHtml = '';
@@ -5260,7 +5343,7 @@ function openThread(id) {
               <span class="x-tweet-main-handle">@popsport</span>
             </div>
           </div>
-          <div class="x-tweet-main-text">${t.texto}</div>
+          <div class="x-tweet-main-text">${textoMostrado}</div>
           ${mediaHtml}
         </div>`;
     }
@@ -5275,7 +5358,7 @@ function openThread(id) {
             <span class="x-tweet-author">POPSPORT</span>
             <span class="x-tweet-handle">@popsport</span>
           </div>
-          <div class="x-tweet-text">${t.texto}</div>
+          <div class="x-tweet-text">${textoMostrado}</div>
           ${mediaHtml}
         </div>
       </div>`;
@@ -5294,7 +5377,14 @@ function openThread(id) {
   if (modalOverlay) modalOverlay.scrollTop = 0;
   if (modalBody) modalBody.scrollTop = 0;
   if (contentEl) contentEl.scrollTop = 0;
-} 
+}
+
+// Permite refrescar el idioma del hilo actualmente abierto (llamado desde el selector ES/CAT)
+window.refreshOpenThread = function(){
+  if (ultimoHiloAbierto && document.getElementById('x-thread-view')?.classList.contains('active')) {
+    openThread(ultimoHiloAbierto);
+  }
+};
 function closeThreadView() {
   document.getElementById('x-thread-view')?.classList.remove('active');
   document.getElementById('x-profile-view')?.classList.remove('x-hidden');
@@ -5356,25 +5446,30 @@ function closeThreadView() {
    sin abrir nuevos modales ni cambiar de página. */
 (function(){
   const PROC_STEPS = [
-    { emoji:'💡', label:'Idea', title:'💡 Idea',
+    { emoji:'💡', label:'Idea', title:'💡 Idea', titleCa:'💡 Idea',
       img: 'foto/porfolio1.png',
       text:'Definí qué proyectos quería mostrar y qué formato encajaba mejor con cada uno (feed, hilos, presentación, podcast...).',
+      textCa:'Vaig definir quins projectes volia mostrar i quin format encaixava millor amb cadascun (feed, fils, presentació, podcast...).',
       grad:'var(--grad)' },
-    { emoji:'🎨', label:'Diseño', title:'🎨 Diseño',
+    { emoji:'🎨', label:'Diseño', title:'🎨 Diseño', titleCa:'🎨 Disseny',
       img: 'foto/porfolio2.png',
       text:'Con la estructura ya definida, empecé a buscar la mejor forma de llevar todas esas ideas a una página web. Como nunca había diseñado una interfaz web desde cero, investigué diferentes referencias y trabajé junto a Claude para explorar propuestas de diseño, probar distintas distribuciones y encontrar soluciones visuales que encajaran con la identidad del portfolio. A partir de esas ideas fui adaptando, modificando y tomando decisiones hasta conseguir un diseño que realmente sintiera mío.',
+      textCa:'Amb l\'estructura ja definida, vaig començar a buscar la millor manera de portar totes aquelles idees a una pàgina web. Com que mai havia dissenyat una interfície web des de zero, vaig investigar diferents referències i vaig treballar juntament amb Claude per explorar propostes de disseny, provar diferents distribucions i trobar solucions visuals que encaixessin amb la identitat del portfolio. A partir d\'aquelles idees vaig anar adaptant, modificant i prenent decisions fins a aconseguir un disseny que realment sentís meu.',
       grad:'var(--grad)' },
-    { emoji:'💻', label:'Desarrollo', title:'💻 Desarrollo',
+    { emoji:'💻', label:'Desarrollo', title:'💻 Desarrollo', titleCa:'💻 Desenvolupament',
       img: 'foto/porfolio3.png',
       text:'Con el diseño ya definido, llegó el momento de construirlo. Como nunca había desarrollado una página web, tuve que aprender HTML, CSS y JavaScript sobre la marcha. Durante ese proceso, Gemini y Claude se convirtieron en dos grandes aliados: me ayudaron a resolver errores, entender cómo funcionaba el código y encontrar soluciones cuando me atascaba. Poco a poco fui adaptando cada propuesta hasta convertirla en algo propio.',
+      textCa:'Amb el disseny ja definit, va arribar el moment de construir-lo. Com que mai havia desenvolupat una pàgina web, vaig haver d\'aprendre HTML, CSS i JavaScript sobre la marxa. Durant aquest procés, Gemini i Claude es van convertir en dos grans aliats: em van ajudar a resoldre errors, entendre com funcionava el codi i trobar solucions quan m\'encallava. A poc a poc vaig anar adaptant cada proposta fins a convertir-la en alguna cosa pròpia.',
       grad:'var(--grad3)' },
-    { emoji:'🧪', label:'Testing', title:'🧪 Testing',
+    { emoji:'🧪', label:'Testing', title:'🧪 Testing', titleCa:'🧪 Testing',
       img: 'foto/testing.png',
       text:'A medida que la web iba creciendo aparecieron nuevos retos. Había botones que dejaban de funcionar, estilos que se rompían y elementos que no se adaptaban correctamente a todos los dispositivos. Gran parte del proceso consistió en probar, corregir errores y pulir cada detalle hasta conseguir una experiencia fluida.',
+      textCa:'A mesura que la web anava creixent van aparèixer nous reptes. Hi havia botons que deixaven de funcionar, estils que es trencaven i elements que no s\'adaptaven correctament a tots els dispositius. Gran part del procés va consistir a provar, corregir errors i polir cada detall fins a aconseguir una experiència fluida.',
       grad:'var(--grad4)' },
-    { emoji:'🚀', label:'Resultado', title:'🚀 Resultado',
+    { emoji:'🚀', label:'Resultado', title:'🚀 Resultado', titleCa:'🚀 Resultat',
       img: 'foto/pw.png',
       text:'Después de muchas versiones, pruebas y pequeños cambios, el portfolio terminó convirtiéndose en algo más que una página web. Se convirtió en un proyecto que resume mi forma de trabajar: empezar sin saber exactamente cómo hacerlo e ir aprendiendo hasta construir aquello que imaginaba.',
+      textCa:'Després de moltes versions, proves i petits canvis, el portfolio va acabar convertint-se en alguna cosa més que una pàgina web. Es va convertir en un projecte que resumeix la meva forma de treballar: començar sense saber exactament com fer-ho i anar aprenent fins a construir allò que imaginava.',
       grad:'var(--grad)' },
   ];
 
@@ -5401,8 +5496,8 @@ function closeThreadView() {
     slideImg.style.background = 'transparent';
     slideImg.innerHTML = `<img src="${step.img}" alt="${step.label}" style="width:100%; height:100%; object-fit:cover; border-radius:16px; display:block;">`;
 
-    if (slideTitle) slideTitle.textContent = step.title;
-    if (slideText) slideText.textContent = step.text;
+    if (slideTitle) slideTitle.textContent = (document.documentElement.getAttribute('lang') === 'ca' ? step.titleCa : step.title) || step.title;
+    if (slideText) slideText.textContent = (document.documentElement.getAttribute('lang') === 'ca' ? step.textCa : step.text) || step.text;
     if (counter) counter.textContent = (index + 1) + ' / ' + PROC_STEPS.length;
 
     // Actualizar botones del timeline arriba
@@ -5483,6 +5578,41 @@ function closeThreadView() {
 
   // ✅ ESTADO INICIAL CORREGIDO: Renderiza la foto directamente al cargar
   updateContent(0);
+  window.refreshProcSlide = () => updateContent(current);
+})();
+</script>
+<!-- ================= SELECTOR DE IDIOMA (ES / CAT) ================= -->
+<script>
+(function(){
+  function applyLang(lang){
+    window.currentSiteLang = lang;
+    if (typeof window.refreshStorySlides === 'function') window.refreshStorySlides();
+    if (typeof window.refreshReelsUI === 'function') window.refreshReelsUI();
+    document.querySelectorAll('.i18n').forEach(function(el){
+      var txt = el.getAttribute('data-' + lang);
+      if(txt !== null) el.textContent = txt;
+    });
+    document.querySelectorAll('.i18n-aria').forEach(function(el){
+      var txt = el.getAttribute('data-aria-' + lang);
+      if(txt !== null) el.setAttribute('aria-label', txt);
+    });
+    document.querySelectorAll('.i18n-html').forEach(function(el){
+      var html = el.getAttribute('data-' + lang + '-html');
+      if(html !== null) el.innerHTML = html;
+    });
+    document.documentElement.setAttribute('lang', lang === 'ca' ? 'ca' : 'es');
+    if (typeof window.refreshProcSlide === 'function') window.refreshProcSlide();
+    if (typeof window.refreshOpenThread === 'function') window.refreshOpenThread();
+    var esBtn = document.getElementById('langEsBtn');
+    var caBtn = document.getElementById('langCaBtn');
+    if(esBtn) esBtn.classList.toggle('active', lang === 'es');
+    if(caBtn) caBtn.classList.toggle('active', lang === 'ca');
+    try{ localStorage.setItem('siteLang', lang); }catch(e){}
+  }
+  window.setSiteLang = applyLang;
+  var saved = 'es';
+  try{ saved = localStorage.getItem('siteLang') || 'es'; }catch(e){}
+  applyLang(saved);
 })();
 </script>
 </body>
