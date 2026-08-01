@@ -2365,7 +2365,9 @@ window.scrollTo(0, 0);
   @media(max-width:640px){
     .mobile-nav{display:block;}
     body{padding-bottom:64px;}
-    .top-links{display:none;}
+    .top-links{display:flex; gap:0;}
+    .topbar-status{display:none;}
+    .lang-switch{margin-left:0;}
   }
 
   @media(max-width:720px){
@@ -2520,7 +2522,7 @@ window.scrollTo(0, 0);
 <div class="topbar">
   <div class="wordmark">LARA SEBASTIÀ</div>
   <div class="top-links">
-    <a href="#contacto"><span class="live-dot"></span><span class="i18n" data-es="Disponible" data-ca="Disponible">Disponible</span></a>
+    <a href="#contacto" class="topbar-status"><span class="live-dot"></span><span class="i18n" data-es="Disponible" data-ca="Disponible">Disponible</span></a>
     <div class="lang-switch" role="group" aria-label="Selector de idioma">
       <button type="button" class="lang-btn" id="langEsBtn" onclick="setSiteLang('es')">ES</button>
       <button type="button" class="lang-btn" id="langCaBtn" onclick="setSiteLang('ca')">CAT</button>
