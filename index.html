@@ -4975,7 +4975,7 @@ function showToast(msg){
 }
 document.getElementById('cvBtn').addEventListener('click', () => {
   const esCa = (window.currentSiteLang === 'ca') || (document.documentElement.getAttribute('lang') === 'ca');
-  const cvFile = esCa ? 'doc/cv_cat.pdf' : 'doc/cv_es.pdf';
+  const cvFile = esCa ? 'doc/cat.pdf' : 'doc/es.pdf';
   const link = document.createElement('a');
   link.href = cvFile;
   link.download = cvFile.split('/').pop();
